@@ -59,7 +59,6 @@
 // }
 
 
-
 "use client"
 import Image from "next/image"
 
@@ -83,52 +82,61 @@ export default function FeaturesSection() {
   ]
 
   return (
-    <section className="w-full bg-[#fafaf8] py-20 px-4 md:py-32">
+    <section className="w-full bg-purple-50 py-20 px-4 md:py-32">
       <div className="mx-auto max-w-7xl relative overflow-hidden">
-        {/* Header */}
         <div className="mb-16 md:mb-24 text-center animate-fade-in-up">
-          <h2 className="font-oswald text-5xl md:text-7xl font-bold text-[#1a1a1a] leading-tight">
+          <h2 className="text-5xl md:text-7xl font-bold text-purple-900 leading-tight">
             Our Store
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2d5a4d] to-[#c59a6d]">
+            {/* <span className="block bg-gradient-to-r from-purple-600 to-yellow-400 bg-clip-text text-transparent">
               Formats
-            </span>
+            </span> */}
           </h2>
-          <p className="text-[#6b6b6b] text-lg md:text-xl max-w-2xl mx-auto font-light mt-6">
+          <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto font-light mt-6">
             Choose the format that fits your retail vision
           </p>
         </div>
 
-        {/* Cards Grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up"
+              className="group relative overflow-hidden rounded-3xl bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up border-2 border-purple-200"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Image Container */}
-              <div className="relative h-64 md:h-72 overflow-hidden bg-gradient-to-br from-[#f5f3f0] to-[#ede9e3] group-hover:from-[#2d5a4d]/5 group-hover:to-[#c59a6d]/10 transition-all duration-500">
+              <div className="relative h-64 md:h-72 overflow-hidden bg-gradient-to-br from-purple-100 to-yellow-100 group-hover:from-purple-200 group-hover:to-yellow-200 transition-all duration-500">
                 <Image
                   src={feature.image || "/placeholder.svg"}
                   alt={feature.title}
                   fill
                   className="object-contain group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-
-              {/* Content */}
               <div className="p-8 md:p-10">
-                <h3 className="font-oswald text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4 group-hover:text-[#2d5a4d] transition-colors duration-300">
+                <h3 className="text-2xl md:text-3xl font-bold text-purple-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <div className="h-0.5 w-10 bg-gradient-to-r from-[#2d5a4d] to-[#c59a6d] mb-4 group-hover:w-16 transition-all duration-300" />
-                <p className="text-sm md:text-base leading-relaxed text-[#6b6b6b] font-light">{feature.description}</p>
+                <div className="h-0.5 w-10 bg-gradient-to-r from-purple-600 to-yellow-400 mb-4 group-hover:w-16 transition-all duration-300" />
+                <p className="text-sm md:text-base leading-relaxed text-gray-600 font-light">{feature.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.6s ease-out forwards;
+        }
+      `}</style>
     </section>
   )
 }

@@ -6,18 +6,28 @@ import Navbar from "../components/navbar";
 import StepsSection from "../components/steps-section";
 import WhyBestSection from "../components/why-best-section";
 import RentPage from "../components/rentpage";
+import ServiceCardsSection from "../components/service-card-section";
+import ComparisonSection from "../components/comparison-section";
+import FirstTimeEntrepreneursSection from "../components/first-time-entrepreneurs-section";
+import LittleOtherThingsSection from "../components/little-other-things-section";
+import ContactUsSection from "../components/contact-us-section";
 
 export default function Home() {
   return (
     <main className="w-full">
-       <Navbar />
+       {/* <Navbar /> */}
       <HeroSection />
       <FeaturesSection />
       <AnimatedIconsSection />
       <WhyBestSection />
+      <ServiceCardsSection />
       <RentPage />
-      <StepsSection/>
+      <StepsSection/>̃
       <FaqSection />
+      <ComparisonSection />
+      <FirstTimeEntrepreneursSection />
+      <LittleOtherThingsSection />
+      <ContactUsSection />
     </main>
   )
 }

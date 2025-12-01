@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center">
               <Image
-                src="/mainlogo.png"
+                src="/reallogo.png"
                 alt="Studio Logo"
                 width={120}
                 height={40}
