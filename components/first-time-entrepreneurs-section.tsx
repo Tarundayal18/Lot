@@ -219,7 +219,7 @@ export default function FirstTimeEntrepreneursSection() {
           })}
         </div>
 
-        <div
+        {/* <div
           className={`text-center bg-gradient-to-r from-purple-100 to-yellow-100 rounded-3xl p-8 md:p-12 border-2 border-purple-300 backdrop-blur-sm transition-all duration-700 ${
             isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
           }`}
@@ -231,7 +231,7 @@ export default function FirstTimeEntrepreneursSection() {
               We bring the products, training, and complete support.
             </span>
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   )

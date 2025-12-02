@@ -123,7 +123,7 @@ export default function LittleOtherThingsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-b from-yellow-50 via-purple-50 to-yellow-50 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
+      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 px-4 md:px-8 relative overflow-hidden"
     >
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300/15 rounded-full blur-3xl animate-float-slow" />

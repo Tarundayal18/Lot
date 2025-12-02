@@ -67,22 +67,22 @@ export default function FeaturesSection() {
     {
       title: "The Pop Corner",
       description: "High-traffic kiosks (100-150 sqft) for impulse buys. Maximize sales in minimal space.",
-      image: "/ourstore/img01.png",
+      image: "/ourstore/img1.png",
     },
     {
       title: "The Cozy Nook",
       description: "Dedicated shops (200-250 sqft) for immersive browsing. Ideal for upmarket streets.",
-      image: "/ourstore/img02.png",
+      image: "/ourstore/img2.png",
     },
     {
       title: "The Wonder Den",
       description: "Expansive stores (500+ sqft) for full product range. Destination retail with experiences.",
-      image: "/ourstore/img03.png",
+      image: "/ourstore/img3.png",
     },
   ]
 
   return (
-    <section className="w-full bg-purple-50 py-20 px-4 md:py-32">
+    <section className="w-full bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-20 px-4 md:py-32">
       <div className="mx-auto max-w-7xl relative overflow-hidden">
         <div className="mb-16 md:mb-24 text-center animate-fade-in-up">
           <h2 className="text-5xl md:text-7xl font-bold text-purple-900 leading-tight">

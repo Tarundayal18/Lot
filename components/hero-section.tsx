@@ -722,28 +722,28 @@ export default function HeroSection() {
       id: 1,
       title: "Zero Franchise Fee",
       text: "No upfront franchise fees mean more capital to invest directly into your store and inventory.",
-      image: "/Success/link1.png",
+      image: "/Success/link01.png",
       icon: "💰",
     },
     {
       id: 2,
       title: "High Profit Margins",
       text: "Benefit from an industry-leading 45% margin on our fast-selling, high-demand products.",
-      image: "/Success/link2.png",
+      image: "/Success/link02.png",
       icon: "📈",
     },
     {
       id: 3,
       title: "Curated Product Advantage",
       text: "Leverage 4 years of expertise in sourcing trendy, high-quality, and affordable products.",
-      image: "/Success/link3.png",
+      image: "/Success/link03.png",
       icon: "⭐",
     },
     {
       id: 4,
       title: "Full-Spectrum Support",
       text: "Comprehensive training and ongoing support from initial setup to daily operations.",
-      image: "/Success/link4.png",
+      image: "/Success/link04.png",
       icon: "🤝",
     },
   ]
@@ -833,7 +833,7 @@ export default function HeroSection() {
         </div> */}
       </section>
 
-      <section className="w-full py-20 md:py-32 px-4 md:px-8 bg-gradient-to-b from-purple-50 via-white to-yellow-50 relative overflow-hidden">
+      <section className="w-full py-20 md:py-32 px-4 md:px-8 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-purple-300 blur-3xl" />

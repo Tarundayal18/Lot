@@ -36,15 +36,15 @@ const stepsData = [
   },
 ]
 
-export default function StepsSection() {
+export default function StepsSection2() {
   const [activeStep, setActiveStep] = useState(1)
   const currentStep = stepsData.find((step) => step.id === activeStep)
 
   return (
-    <section
-      className="w-full py-16 px-4 md:py-24 lg:py-28 min-h-screen flex relative overflow-hidden bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100"
-      
-    >
+   <section
+  className="border border-red-500"
+>
+
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
           className="absolute top-20 right-10 w-72 h-72 rounded-full opacity-30"
@@ -63,10 +63,8 @@ export default function StepsSection() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="mb-16 md:mb-20 lg:mb-24 relative">
-          {/* <p className="text-xs md:text-sm font-semibold text-purple-600 tracking-widest uppercase mb-4 opacity-80">
-            Our Process
-          </p> */}
+        <div className="mb-16 md:mb-20 lg:mb-34 relative">
+          
           <h2 className="text-5xl md:text-7xl lg:text-8xl text-center font-oswald text-purple-900 font-bold leading-tight text-balance">
             Our not-so
             <br />
@@ -74,7 +72,7 @@ export default function StepsSection() {
           </h2>
         </div>
 
-        <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl border-2 border-purple-200/60 hover:border-yellow-300/50 transition-all duration-300">
+        <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 md:p-12 lg:p-20 shadow-2xl border-2 border-purple-200/60 hover:border-yellow-300/50 transition-all duration-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div className="order-2 md:order-1">
               <div className="flex gap-3 mb-8 flex-wrap">

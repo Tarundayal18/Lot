@@ -41,13 +41,10 @@ const reasons = [
 
 export default function WhyBestSection() {
   return (
-    <section className="bg-purple-100 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(147, 51, 234, 0.1) 35px, rgba(147, 51, 234, 0.1) 70px)",
-        }}
+       
       />
       <div className="max-w-8xl mx-auto relative z-10">
         <div className="relative mb-16 md:mb-24 text-center animate-fade-in-up">

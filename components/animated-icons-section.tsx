@@ -125,7 +125,7 @@ export default function AnimatedIconsSection() {
 
   return (
     <section
-      className="relative px-4 py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative w-screen h-screen min-h-screen px-4 py-16 md:py-20 lg:py-24 overflow-hidden"
       style={{
         backgroundImage: `url("/mbg01.png")`,
         backgroundColor: "#ffff14",
@@ -185,9 +185,9 @@ export default function AnimatedIconsSection() {
                   <Image
                     src={icon.src || "/placeholder.svg"}
                     alt={`icon-${icon.id}`}
-                    width={120}
-                    height={120}
-                    className="object-contain"
+                    width={160}
+                    height={200}
+                    className="object-cover"
                   />
                 </div>
               )),

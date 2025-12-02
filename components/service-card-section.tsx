@@ -178,7 +178,7 @@ export default function ServiceCardsSection() {
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-purple-50">
+    <section className="w-full py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 md:mb-20 text-center animate-fade-in-up">
           {/* <p className="text-xs md:text-sm font-semibold text-purple-600 tracking-widest uppercase mb-4 opacity-80">
@@ -237,14 +237,14 @@ export default function ServiceCardsSection() {
         </div>
 
         {/* Call to action */}
-        <div className="mt-16 md:mt-20 text-center">
+        {/* <div className="mt-16 md:mt-20 text-center">
           <p className="text-purple-600 text-sm md:text-base font-bold mb-6 opacity-80">
             Ready to transform your campaigns?
           </p>
           <button className="px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-purple-600 to-yellow-400 text-white font-bold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95">
             Get Started Today
           </button>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`

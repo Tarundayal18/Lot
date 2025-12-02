@@ -142,7 +142,7 @@ export default function ComparisonSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-b from-purple-50 via-yellow-50 to-purple-50 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
+      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-10"
@@ -222,14 +222,14 @@ export default function ComparisonSection() {
         </div>
 
         {/* Button */}
-        <div
+        {/* <div
           className={`mt-16 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
           style={{ animationDelay: isVisible ? "0.6s" : "0s" }}
         >
           <button className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105 hover:ring-4 hover:ring-yellow-300/50">
             Start Your Journey Today
           </button>
-        </div>
+        </div> */}
 
       </div>
     </section>

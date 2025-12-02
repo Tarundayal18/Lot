@@ -310,10 +310,8 @@ export default function ContactUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #f3e8ff 0%, #fef3c7 50%, #f3e8ff 100%)",
-      }}
+      className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100"
+   
     >
       <div className="absolute top-0 right-0 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl -z-10 animate-float-slow" />
       <div

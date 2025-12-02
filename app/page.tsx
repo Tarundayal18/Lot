@@ -23,7 +23,7 @@ export default function Home() {
       <WhyBestSection />
       <ServiceCardsSection />
       <RentPage />
-      <StepsSection/>̃
+      <StepsSection/>
       <FaqSection />
       <ComparisonSection />
       <LittleOtherThingsSection />
