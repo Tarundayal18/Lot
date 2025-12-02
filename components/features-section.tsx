@@ -67,17 +67,17 @@ export default function FeaturesSection() {
     {
       title: "The Pop Corner",
       description: "High-traffic kiosks (100-150 sqft) for impulse buys. Maximize sales in minimal space.",
-      image: "/img01.png",
+      image: "/ourstore/img01.png",
     },
     {
       title: "The Cozy Nook",
       description: "Dedicated shops (200-250 sqft) for immersive browsing. Ideal for upmarket streets.",
-      image: "/img02.png",
+      image: "/ourstore/img02.png",
     },
     {
       title: "The Wonder Den",
       description: "Expansive stores (500+ sqft) for full product range. Destination retail with experiences.",
-      image: "/img03.png",
+      image: "/ourstore/img03.png",
     },
   ]
 

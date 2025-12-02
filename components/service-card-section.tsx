@@ -127,44 +127,63 @@
 export default function ServiceCardsSection() {
   const serviceCards = [
     {
-      title: "What We Actually Do",
+      title: "Comprehensive Training Program",
       description:
-        "We run strategic Google Ads campaigns with focused keyword research, ad copywriting, and conversion tracking to maximize performance and minimize wastage.",
+        "In-depth initial training covering product knowledge, sales techniques, operational procedures, and customer service excellence.",
       order: 0,
     },
     {
-      title: "Why We're Not Like Everyone Else",
+      title: "Store Design & Visual Merchandising",
       description:
-        "Others chase clicks. We chase conversions. Every ad we run is tracked, tested, and tuned for profitability.",
+        " Expert guidance and design concepts for creating an inviting, visually appealing store layout that maximizes impulse purchases, including interior look-and-feel assistance.",
       order: 1,
     },
     {
-      title: "The Real Problem (And Why It Hurts)",
+      title: "End-to-End Mobile-Based Software",
       description:
-        "Brands burn budgets on irrelevant clicks, poor tracking, and unoptimized campaigns that don't deliver meaningful leads.",
+        "Access to our proprietary, user-friendly mobile software for seamless inventory management, sales tracking, and operational control.",
       order: 2,
     },
     {
-      title: "How We Fix It",
+      title: "Centralized Marketing & CRM Support",
       description:
-        "We constantly refine campaigns using data and insight — not assumptions — to deliver maximum ROI at minimum cost.",
+        "Benefit from national and local marketing campaigns, digital advertising support, and customer relationship management tools to drive foot traffic and build loyalty.",
       order: 3,
     },
     {
-      title: "What You Get (The Value)",
+      title: "Continuous Product Selection & Supply",
       description:
-        "More visibility, better leads, and stronger returns — Google Ads that finally make financial sense.",
+        "Our team constantly sources new, trending, and fast-selling products, ensuring your store always has fresh, desirable inventory at competitive prices.",
       order: 4,
     },
+    {
+      title: "Ongoing Operational Guidance",
+      description:
+        "Dedicated support team available to assist with daily operations, troubleshooting, and best practices to ensure smooth functioning and profitability.",
+      order: 5,
+    },
+    {
+      title: "Performance Monitoring & Coaching",
+      description:
+        "Regular performance reviews and personalized coaching to help you optimize sales, manage inventory efficiently, and achieve your financial targets.",
+      order: 6,
+    },
+    {
+      title: "Brand Asset Library",
+      description:
+        "Access to professional marketing materials, branding guidelines, and digital assets to maintain a consistent and attractive brand image",
+      order: 7,
+    },
+    
   ]
 
   return (
     <section className="w-full py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-purple-50">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 md:mb-20 text-center animate-fade-in-up">
-          <p className="text-xs md:text-sm font-semibold text-purple-600 tracking-widest uppercase mb-4 opacity-80">
+          {/* <p className="text-xs md:text-sm font-semibold text-purple-600 tracking-widest uppercase mb-4 opacity-80">
             Our Approach
-          </p>
+          </p> */}
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-purple-900 leading-tight">
             What Makes Us
             <span className="block bg-gradient-to-r from-purple-600 to-yellow-400 bg-clip-text text-transparent">

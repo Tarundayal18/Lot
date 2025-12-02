@@ -7,35 +7,35 @@ const reasons = [
     description:
       "Prioritize locations with consistent pedestrian traffic, such as popular market streets, bustling shopping complexes, and vibrant commercial hubs.",
     accentColor: "#7c3aed",
-    image: "/img01.png",
+    image: "/whybest/img01.png",
   },
   {
     title: "Visibility & Accessibility",
     description:
       "Opt for easily visible storefronts or kiosk positions with good accessibility, close to public transport or ample parking.",
     accentColor: "#a855f7",
-    image: "/img02.png",
+    image: "/whybest/img02.png",
   },
   {
     title: "Complementary Environment",
     description:
       "Look for areas surrounded by businesses that attract a similar demographic (e.g., cafes, fashion boutiques, entertainment venues).",
     accentColor: "#ffc107",
-    image: "/img03.png",
+    image: "/whybest/img03.png",
   },
   {
     title: "Optimal Size",
     description:
       "While we are flexible, our ideal store footprint for a full experience is 250-300 sqft, with Kiosks ranging from 100-150 sqft.",
     accentColor: "#7c3aed",
-    image: "/img01.png",
+    image: "/whybest/img04.png",
   },
   {
     title: "Lease Terms",
     description:
       "Carefully evaluate rental agreements, ensuring the monthly rent aligns with our recommended sales-to-rent ratio.",
     accentColor: "#a855f7",
-    image: "/img02.png",
+    image: "/whybest/img05.png",
   },
 ]
 

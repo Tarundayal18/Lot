@@ -180,28 +180,28 @@ const stepsData = [
     title: "Inquire & Connect",
     description:
       "Start by filling out our simple inquiry form. Our team will reach out to understand your aspirations and introduce you to the Little Other Things vision.",
-    imageSrc: "/Container.png",
+    imageSrc: "/oursecret/Container.png",
   },
   {
     id: 2,
     title: "Location & Model Selection",
     description:
       "With our guidance, identify the ideal store location and choose the franchise model that best fits your goals and the local market potential.",
-    imageSrc: "/Container2.png",
+    imageSrc: "/oursecret/Container2.png",
   },
   {
     id: 3,
     title: "Setup & Training",
     description:
       "Receive comprehensive training on product knowledge, operations, and our mobile-based management software. We'll also provide design assistance to create that signature look.",
-    imageSrc: "/Container3.png",
+    imageSrc: "/oursecret/Container3.png",
   },
   {
     id: 4,
     title: "Launch & Success",
     description:
       "Stock your store with our expertly curated inventory. With centralized marketing and continuous product selection support, you're ready to open your doors and begin your profitable journey.",
-    imageSrc: "/Container4.png",
+    imageSrc: "/oursecret/Container4.png",
   },
 ]
 
