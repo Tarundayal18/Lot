@@ -127,7 +127,7 @@ export default function AnimatedIconsSection() {
     <section
       className="relative px-4 py-16 md:py-20 lg:py-24 overflow-hidden"
       style={{
-        backgroundImage: `url("/mbg1.png")`,
+        backgroundImage: `url("/mbg01.png")`,
         backgroundColor: "#ffff14",
         backgroundSize: "60%",
         backgroundPosition: "center",
