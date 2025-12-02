@@ -297,11 +297,11 @@ export default function InvestmentCalculator() {
   const [showResult, setShowResult] = useState(false)
   const [isCalculating, setIsCalculating] = useState(false)
 
-  const handleUserChange = (e) => {
+  const handleUserChange = (e: any) => {
     setUserInputs({ ...userInputs, [e.target.name]: e.target.value })
   }
 
-  const handlePopupChange = (e) => {
+  const handlePopupChange = (e: any) => {
     const { name, value, type, checked } = e.target
     setPopupData({
       ...popupData,
@@ -364,7 +364,7 @@ export default function InvestmentCalculator() {
         />
       </div>
 
-      <div className="max-w-3xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <p className="text-xs md:text-sm font-semibold text-purple-600 tracking-widest uppercase mb-4 opacity-80">
             Financial Planning
