@@ -77,9 +77,15 @@ export default function WhyBestSection() {
                 />
                 <div className="relative w-full">
                   <div className="flex justify-center mb-6">
-                    <div className="relative w-20 h-20 md:w-40 md:h-40 group-hover:scale-110 transition-transform duration-500">
-                      <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-contain" />
-                    </div>
+                    <div className="relative w-20 h-20 md:w-40 md:h-40 group-hover:scale-110 transition-transform duration-500 rounded-xl overflow-hidden">
+  <Image
+    src={item.image || "/placeholder.svg"}
+    alt={item.title}
+    fill
+    className="object-contain"
+  />
+</div>
+
                   </div>
                   <h3
                     className="text-xl md:text-2xl font-bold mb-3 transition-colors duration-300 group-hover:opacity-80"
@@ -120,9 +126,15 @@ export default function WhyBestSection() {
                 />
                 <div className="relative w-full">
                   <div className="flex justify-center mb-6">
-                    <div className="relative w-20 h-20 md:w-40 md:h-40 group-hover:scale-110 transition-transform duration-500">
-                      <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-contain" />
-                    </div>
+                    <div className="relative w-20 h-20 md:w-40 md:h-40 group-hover:scale-110 transition-transform duration-500 rounded-xl overflow-hidden">
+  <Image
+    src={item.image || "/placeholder.svg"}
+    alt={item.title}
+    fill
+    className="object-contain"
+  />
+</div>
+
                   </div>
                   <h3
                     className="text-xl md:text-2xl font-bold mb-3 transition-colors duration-300 group-hover:opacity-80"

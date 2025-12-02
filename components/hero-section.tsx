@@ -760,6 +760,8 @@ export default function HeroSection() {
               backgroundSize: "60%",
               backgroundPosition: "center",
               backgroundRepeat: "repeat",
+                      backgroundAttachment: "fixed",
+
               backgroundColor: "#7b33e6ff",
               opacity: 60
             }}
@@ -794,7 +796,7 @@ export default function HeroSection() {
                   <img
                     src="/reallogo2.png"
                     alt="Little Other Things Logo"
-                    className="w-54 h-54 md:w-72 md:h-72 object-cover"
+                    className="w-74 h-74 md:w-100 md:h-100 object-cover"
                   />
                 </div>
               </div>
@@ -811,7 +813,7 @@ export default function HeroSection() {
             Your Path to Retail Success Starts Here
           </h3>
 
-          <p className="text-base md:text-lg text-white mb-8 font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base font-semibold md:text-lg text-white mb-8 font-light max-w-3xl mx-auto leading-relaxed">
             Partner with Little Other Things and capitalize on the booming demand for curated, adorable lifestyle
             products. Zero franchise fees, high margins, and complete support.
           </p>
@@ -848,46 +850,48 @@ export default function HeroSection() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {cards.map((card, index) => (
-              <div
-                key={card.id}
-                className="group relative rounded-3xl overflow-hidden h-full min-h-96 cursor-pointer animate-fade-in-up hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border-2 border-purple-300 hover:border-yellow-300"
-                style={{
-                  backgroundColor: "#7a33e6",
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                {/* TOP IMAGE SECTION */}
-                <div className="w-full h-40 overflow-hidden flex justify-center items-center pt-6">
-                  <img
-                    src={card.image || "/placeholder.svg"}
-                    alt={card.title}
-                    className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+  {cards.map((card, index) => (
+    <div
+      key={card.id}
+      className="group relative rounded-3xl overflow-hidden h-full min-h-72 cursor-pointer animate-fade-in-up hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border-2 border-purple-300 hover:border-yellow-300"
+      style={{
+        backgroundColor: "#7a33e6",
+        animationDelay: `${index * 100}ms`,
+      }}
+    >
+      {/* TOP IMAGE SECTION */}
+      <div className="w-full h-32 overflow-hidden flex justify-end items-start pt-6 pr-4">
+        <img
+          src={card.image || "/placeholder.svg"}
+          alt={card.title}
+          className="w-25 h-30 object-contain group-hover:scale-110 transition-transform duration-300"
+        />
+      </div><br/>
 
-                {/* CONTENT CONTAINER - Bottom section */}
-                <div className="flex flex-col justify-end h-full p-6 md:p-7">
-                  <h3 className="font-oswald text-2xl md:text-3xl font-bold text-white mb-3 leading-tight group-hover:text-yellow-300 transition-colors duration-300">
-                    {card.title}
-                  </h3>
+      {/* CONTENT CONTAINER - Bottom aligned */}
+      <div className="flex flex-col justify-end h-full p-4 md:p-5">
+        <h3 className="font-oswald text-xl md:text-2xl font-bold text-white mb-1 leading-tight group-hover:text-yellow-300 transition-colors duration-300 text-left">
+          {card.title}
+        </h3>
 
-                  <p className="text-white/90 text-sm md:text-base leading-relaxed font-light mb-4 flex-grow">
-                    {card.text}
-                  </p>
+        <p className="text-white/90 text-sm md:text-sm leading-relaxed font-light mb-2 text-left flex-grow">
+          {card.text}
+        </p>
 
-                  <div className="flex items-center gap-3 text-yellow-300 group-hover:translate-x-3 transition-all duration-300 font-semibold">
-                    <span>Learn More</span>
-                    <span className="text-2xl group-hover:translate-x-1 transition-transform duration-300">→</span>
-                  </div>
-                </div>
+        <div className="flex items-center gap-2 text-yellow-300 group-hover:translate-x-2 transition-all duration-300 font-semibold text-left">
+          <span>Learn More</span>
+          <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
+        </div>
+      </div>
 
-                {/* Subtle hover shine effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-gradient-to-r from-transparent via-white to-transparent" />
-              </div>
-            ))}
-          </div>
+      {/* Subtle hover shine effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-gradient-to-r from-transparent via-white to-transparent" />
+    </div>
+  ))}
+</div>
+
+
         </div>
       </section>
 

@@ -18,6 +18,7 @@ export default function Home() {
        {/* <Navbar /> */}
       <HeroSection />
       <FeaturesSection />
+      <FirstTimeEntrepreneursSection />
       <AnimatedIconsSection />
       <WhyBestSection />
       <ServiceCardsSection />
@@ -25,7 +26,6 @@ export default function Home() {
       <StepsSection/>̃
       <FaqSection />
       <ComparisonSection />
-      <FirstTimeEntrepreneursSection />
       <LittleOtherThingsSection />
       <ContactUsSection />
     </main>
