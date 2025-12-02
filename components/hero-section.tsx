@@ -722,28 +722,28 @@ export default function HeroSection() {
       id: 1,
       title: "Zero Franchise Fee",
       text: "No upfront franchise fees mean more capital to invest directly into your store and inventory.",
-      image: "/success/link1.png",
+      image: "/Success/link1.png",
       icon: "💰",
     },
     {
       id: 2,
       title: "High Profit Margins",
       text: "Benefit from an industry-leading 45% margin on our fast-selling, high-demand products.",
-      image: "/success/link2.png",
+      image: "/Success/link2.png",
       icon: "📈",
     },
     {
       id: 3,
       title: "Curated Product Advantage",
       text: "Leverage 4 years of expertise in sourcing trendy, high-quality, and affordable products.",
-      image: "/success/link3.png",
+      image: "/Success/link3.png",
       icon: "⭐",
     },
     {
       id: 4,
       title: "Full-Spectrum Support",
       text: "Comprehensive training and ongoing support from initial setup to daily operations.",
-      image: "/success/link4.png",
+      image: "/Success/link4.png",
       icon: "🤝",
     },
   ]
@@ -767,7 +767,7 @@ export default function HeroSection() {
           <div
             className="absolute inset-0"
             style={{
-              
+
             }}
           />
           <div
@@ -801,7 +801,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-<h1 className="font-oswald text-5xl md:text-6xl lg:text-8xl font-bold text-[#ffff14] leading-tight mb-0 tracking-tight drop-shadow-lg">
+          <h1 className="font-oswald text-5xl md:text-6xl lg:text-8xl font-bold text-[#ffff14] leading-tight mb-0 tracking-tight drop-shadow-lg">
             Unlock High Returns
           </h1>
           <h2 className="font-oswald text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 md:mb-9 tracking-tight drop-shadow-lg">
@@ -848,7 +848,7 @@ export default function HeroSection() {
             </h2>
           </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {cards.map((card, index) => (
               <div
                 key={card.id}
