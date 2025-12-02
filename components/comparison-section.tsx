@@ -102,6 +102,7 @@
 //     </section>
 //   )
 // }
+
 "use client"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
@@ -148,7 +149,10 @@ export default function ComparisonSection() {
         style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 50%)" }}
       />
       <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300/10 rounded-full blur-3xl" />
+
       <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Top Heading */}
         <div
           className={` text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
         >
@@ -158,64 +162,66 @@ export default function ComparisonSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div />
-          <div className="flex items-center justify-center">
-            <Image src="/reallogo3.png" alt="Logo" width={200} height={100} className="object-contain" />
+        {/* ⭐ HEADER ROW WITH LOGO & OTHERS ⭐ */}
+       
+
+        {/* Comparisons Table */}
+        <div className="grid grid-cols-1 gap-4">
+
+             <div className="grid grid-cols-1 md:grid-cols-3 items-center ">
+          <div></div>
+
+          <div className="flex justify-center">
+            <Image
+              src="/reallogo3.png"
+              alt="Logo"
+              width={140}
+              height={70}
+              className="object-contain"
+            />
           </div>
-          
+
+          <div className="flex justify-center">
+            <h3 className="font-oswald font-bold text-purple-900 text-lg">Others</h3>
+          </div>
+        </div>
+            
+          {comparisons.map((item, index) => (
+            <div
+              key={index}
+              className={`grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-700 ${
+                isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+              }`}
+              style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
+            >
+              {/* Column 1 */}
+              <div className="bg-purple-100 rounded-2xl p-4 md:p-6 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
+                <h3 className="font-oswald font-bold text-purple-900 text-center text-base md:text-lg group-hover:text-purple-700 transition-colors">
+                  {item.title}
+                </h3>
+              </div>
+
+              {/* Column 2 */}
+              <div className="relative rounded-2xl p-4 md:p-6 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 bg-gradient-to-br from-yellow-400 to-purple-300 transition-opacity" />
+                <p className="font-semibold text-purple-900 text-center text-base md:text-lg relative z-10">
+                  {item.us}
+                </p>
+                <div className="absolute top-3 right-3 w-3 h-3 bg-yellow-500 rounded-full group-hover:w-4 group-hover:h-4 transition-all animate-pulse" />
+              </div>
+
+              {/* Column 3 */}
+              <div className="rounded-2xl p-4 md:p-6 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
+                <p className="text-purple-600 text-center text-base md:text-lg opacity-60 group-hover:opacity-50">
+                  {item.other}
+                </p>
+              </div>
+
+            </div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-4">
-  
-  {/* Header Row – Same 3-column grid */}
-  <div className="grid grid-cols-1 md:grid-cols-3">
-    <div></div> {/* 1st column empty */}
-    <div></div> {/* 2nd column empty */}
-    
-    {/* 3rd Column Centered */}
-    <div className="flex justify-center md:justify-center">
-      <h3 className="font-oswald font-bold text-purple-900 text-lg">Others</h3>
-    </div>
-  </div>
-
-  {comparisons.map((item, index) => (
-    <div
-      key={index}
-      className={`grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-700 ${
-        isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-      }`}
-      style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
-    >
-      {/* Column 1 */}
-      <div className="bg-purple-100 rounded-2xl p-4 md:p-6 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
-        <h3 className="font-oswald font-bold text-purple-900 text-center text-base md:text-lg group-hover:text-purple-700 transition-colors">
-          {item.title}
-        </h3>
-      </div>
-
-      {/* Column 2 */}
-      <div className="relative rounded-2xl p-4 md:p-6 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 bg-gradient-to-br from-yellow-400 to-purple-300 transition-opacity" />
-        <p className="font-semibold text-purple-900 text-center text-base md:text-lg relative z-10">
-          {item.us}
-        </p>
-        <div className="absolute top-3 right-3 w-3 h-3 bg-yellow-500 rounded-full group-hover:w-4 group-hover:h-4 transition-all animate-pulse" />
-      </div>
-
-      {/* Column 3 */}
-      <div className="rounded-2xl p-4 md:p-6 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
-        <p className="text-purple-600 text-center text-base md:text-lg opacity-60 group-hover:opacity-50">
-          {item.other}
-        </p>
-      </div>
-
-    </div>
-  ))}
-
-</div>
-
-
+        {/* Button */}
         <div
           className={`mt-16 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
           style={{ animationDelay: isVisible ? "0.6s" : "0s" }}
@@ -224,6 +230,7 @@ export default function ComparisonSection() {
             Start Your Journey Today
           </button>
         </div>
+
       </div>
     </section>
   )

@@ -174,7 +174,7 @@ export default function AnimatedIconsSection() {
               icons.map((icon, index) => (
                 <div
                   key={`${icon.id}-${repeatIndex}`}
-                  className={`flex h-28 w-28 flex-shrink-0 items-center justify-center rounded-3xl overflow-hidden bg-white shadow-lg animate-float-${
+                  className={`flex h-36 w-36 flex-shrink-0 items-center justify-center rounded-3xl overflow-hidden bg-white shadow-lg animate-float-${
                     index % 4
                   } hover:shadow-2xl hover:scale-110 transition-all duration-300`}
                   style={{
