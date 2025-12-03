@@ -68,9 +68,7 @@ export default function StepsSection() {
             Our Process
           </p> */}
           <h2 className="text-5xl md:text-7xl lg:text-8xl text-center font-oswald text-purple-900 font-bold leading-tight text-balance">
-            Our not-so
-            <br />
-            secret sauce
+            Our Process
           </h2>
         </div>
 

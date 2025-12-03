@@ -105,27 +105,25 @@
 // }
 
 
-
 "use client"
 import Image from "next/image"
 
 export default function AnimatedIconsSection() {
-  // Using 16 images instead of emoji icons
-  const icons = Array.from({ length: 9 }, (_, i) => ({
+  // Row 1 → 1 to 11
+  const iconsRow1 = Array.from({ length: 11 }, (_, i) => ({
     id: i + 1,
     src: `/animations/1/${i + 1}.png`,
   }))
 
-  const stats = [
-    { number: "9", suffix: "+", label: "years of experience" },
-    { number: "60", suffix: "+", label: "brands launched" },
-    { number: "1000", suffix: "+", label: "projects delivered" },
-    { number: "98", suffix: "%", label: "On Time Guarantee" },
-  ]
+  // Row 2 → 12 to 22  
+  const iconsRow2 = Array.from({ length: 11 }, (_, i) => ({
+    id: i + 12,
+    src: `/animations/1/${i + 12}.png`,
+  }))
 
   return (
     <section
-      className="relative w-screen h-screen min-h-screen px-4 py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative w-screen px-4 py-16 md:py-20 lg:py-24 overflow-hidden"
       style={{
         backgroundImage: `url("/mbg01.png")`,
         backgroundColor: "#ffff14",
@@ -136,18 +134,14 @@ export default function AnimatedIconsSection() {
     >
       <div
         className="absolute inset-0 z-0"
-        style={{
-          backgroundColor: "rgba(122, 51, 230, 0.15)",
-        }}
+        style={{ backgroundColor: "rgba(122,51,230,0.15)" }}
       />
 
-      {/* Floating orbs - top right */}
+      {/* Floating Orbs */}
       <div className="absolute top-10 right-10 w-32 h-32 bg-yellow-300 rounded-full opacity-20 blur-3xl animate-float-slow z-5"></div>
-
-      {/* Floating orbs - bottom left */}
       <div className="absolute bottom-20 left-5 w-40 h-40 bg-yellow-300 rounded-full opacity-15 blur-3xl animate-float-slower z-5"></div>
 
-      {/* Decorative accent circles */}
+      {/* Decorative Circles */}
       <div className="absolute top-1/3 left-10 w-20 h-20 border-2 border-yellow-300 rounded-full opacity-30 z-5"></div>
       <div className="absolute bottom-1/4 right-16 w-16 h-16 border-2 border-yellow-300 rounded-full opacity-20 z-5"></div>
 
@@ -168,37 +162,61 @@ export default function AnimatedIconsSection() {
           </h2>
         </div>
 
-        <div className="mb-16 md:mb-20 lg:mb-24 min-h-44 md:min-h-52 lg:min-h-64 flex items-center overflow-hidden">
-          <div className="flex gap-8 md:gap-10 lg:gap-12 mt-8 animate-snake-scroll-slow">
+        {/* Row 1 — LEFT to RIGHT */}
+        <div className="mb-16 md:mb-20 lg:mb-24 min-h-44 flex items-center overflow-hidden h-[220px] md:h-[220px] lg:h-[220px]">
+          <div className="flex gap-8 md:gap-10 lg:gap-12 mt-8 animate-left-right ">
             {[...Array(3)].map((_, repeatIndex) =>
-              icons.map((icon, index) => (
+              iconsRow1.map((icon, index) => (
                 <div
                   key={`${icon.id}-${repeatIndex}`}
-                  className={`flex h-36 w-36 flex-shrink-0 items-center justify-center rounded-3xl overflow-hidden bg-white shadow-lg animate-float-${
-                    index % 4
-                  } hover:shadow-2xl hover:scale-110 transition-all duration-300`}
+                  className={`flex h-36 w-36 flex-shrink-0 items-center justify-center rounded-3xl overflow-hidden bg-white shadow-lg animate-float-${index % 4}
+                  hover:shadow-2xl hover:scale-110 transition-all duration-300`}
                   style={{
                     animationDelay: `${index * 0.25}s`,
                     boxShadow: "0 10px 40px rgba(255, 255, 0, 0.2)",
                   }}
                 >
-                  <Image
-                    src={icon.src || "/placeholder.svg"}
-                    alt={`icon-${icon.id}`}
-                    width={160}
-                    height={200}
-                    className="object-cover"
-                  />
+                  <Image src={icon.src} alt={`icon-${icon.id}`} width={160} height={200} className="object-cover" />
                 </div>
-              )),
+              ))
+            )}
+          </div>
+        </div>
+
+        {/* Row 2 — RIGHT to LEFT */}
+        <div className="mb-16 md:mb-20 lg:mb-24 min-h-44 flex items-center overflow-hidden h-[220px] md:h-[220px] lg:h-[220px]">
+          <div className="flex gap-8 md:gap-10 lg:gap-12 mt-8 animate-right-left">
+            {[...Array(3)].map((_, repeatIndex) =>
+              iconsRow2.map((icon, index) => (
+                <div
+                  key={`${icon.id}-${repeatIndex}`}
+                  className={`flex h-36 w-36 flex-shrink-0 items-center justify-center rounded-3xl overflow-hidden bg-white shadow-lg animate-float-${index % 4}
+                  hover:shadow-2xl hover:scale-110 transition-all duration-300`}
+                  style={{
+                    animationDelay: `${index * 0.25}s`,
+                    boxShadow: "0 10px 40px rgba(255, 255, 0, 0.2)",
+                  }}
+                >
+                  <Image src={icon.src} alt={`icon-${icon.id}`} width={160} height={200} className="object-cover" />
+                </div>
+              ))
             )}
           </div>
         </div>
       </div>
 
-      {/* Custom slower animation keyframes */}
+      {/* Custom Animations */}
       <style jsx>{`
-        @keyframes snake-scroll-slow {
+        @keyframes left-right {
+          0% {
+            transform: translateX(-33.33%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes right-left {
           0% {
             transform: translateX(0);
           }
@@ -206,8 +224,13 @@ export default function AnimatedIconsSection() {
             transform: translateX(-33.33%);
           }
         }
-        .animate-snake-scroll-slow {
-          animation: snake-scroll-slow 45s linear infinite;
+
+        .animate-left-right {
+          animation: left-right 45s linear infinite;
+        }
+
+        .animate-right-left {
+          animation: right-left 45s linear infinite;
         }
       `}</style>
     </section>

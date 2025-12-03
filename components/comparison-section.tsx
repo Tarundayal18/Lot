@@ -1,6 +1,6 @@
 
 // "use client"
-
+// import Image from "next/image"
 // import { useEffect, useRef, useState } from "react"
 
 // export default function ComparisonSection() {
@@ -16,11 +16,9 @@
 //       },
 //       { threshold: 0.1 },
 //     )
-
 //     if (sectionRef.current) {
 //       observer.observe(sectionRef.current)
 //     }
-
 //     return () => observer.disconnect()
 //   }, [])
 
@@ -40,7 +38,7 @@
 //   return (
 //     <section
 //       ref={sectionRef}
-//       className="bg-gradient-to-b from-purple-50 via-yellow-50 to-purple-50 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
+//       className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
 //     >
 //       <div
 //         className="absolute inset-0 opacity-10"
@@ -49,8 +47,10 @@
 //       <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300/10 rounded-full blur-3xl" />
 
 //       <div className="max-w-7xl mx-auto relative z-10">
+
+//         {/* Top Heading */}
 //         <div
-//           className={`mb-16 md:mb-24 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
+//           className={` text-center mb-10 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
 //         >
 //           <h2 className="font-oswald text-5xl md:text-7xl font-bold text-purple-900 mb-6">How Are We Better?</h2>
 //           <p className="text-lg md:text-xl text-purple-700 max-w-2xl mx-auto">
@@ -58,22 +58,46 @@
 //           </p>
 //         </div>
 
+//         {/* ⭐ HEADER ROW WITH LOGO & OTHERS ⭐ */}
+
+
 //         <div className="grid grid-cols-1 gap-4">
+
+//          <div className="grid grid-cols-1 md:grid-cols-3 items-center h-56 md:h-40 lg:h-38">
+//   <div></div>
+
+//   <div className="flex justify-center">
+//     <Image
+//       src="/reallogo3.png"
+//       alt="Logo"
+//       width={140}
+//       height={70}
+//       className="object-contain"
+//     />
+//   </div>
+
+//   <div className="flex justify-center">
+//     <h3 className="font-oswald font-bold text-purple-900 text-lg">Others</h3>
+//   </div>
+// </div>
+
+
 //           {comparisons.map((item, index) => (
 //             <div
 //               key={index}
-//               className={`grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-700 ${
-//                 isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-//               }`}
+//               className={`grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+//                 }`}
 //               style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
 //             >
-//               <div className="bg-purple-100 rounded-2xl p-6 md:p-8 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
+//               {/* Column 1 */}
+//               <div className="bg-purple-100 rounded-2xl p-4 md:p-6 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
 //                 <h3 className="font-oswald font-bold text-purple-900 text-center text-base md:text-lg group-hover:text-purple-700 transition-colors">
 //                   {item.title}
 //                 </h3>
 //               </div>
 
-//               <div className="relative rounded-2xl p-6 md:p-8 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+//               {/* Column 2 */}
+//               <div className="relative rounded-2xl p-4 md:p-6 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
 //                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 bg-gradient-to-br from-yellow-400 to-purple-300 transition-opacity" />
 //                 <p className="font-semibold text-purple-900 text-center text-base md:text-lg relative z-10">
 //                   {item.us}
@@ -81,29 +105,35 @@
 //                 <div className="absolute top-3 right-3 w-3 h-3 bg-yellow-500 rounded-full group-hover:w-4 group-hover:h-4 transition-all animate-pulse" />
 //               </div>
 
-//               <div className="rounded-2xl p-6 md:p-8 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
-//                 <p className="text-purple-600 text-center text-base md:text-lg line-through opacity-60 group-hover:opacity-50">
+//               {/* Column 3 */}
+//               <div className="rounded-2xl p-4 md:p-6 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
+//                 <p className="text-purple-600 text-center text-base md:text-lg opacity-60 group-hover:opacity-50">
 //                   {item.other}
 //                 </p>
 //               </div>
+
 //             </div>
 //           ))}
 //         </div>
 
-//         <div
+//         {/* Button */}
+//         {/* <div
 //           className={`mt-16 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
 //           style={{ animationDelay: isVisible ? "0.6s" : "0s" }}
 //         >
 //           <button className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105 hover:ring-4 hover:ring-yellow-300/50">
 //             Start Your Journey Today
 //           </button>
-//         </div>
+//         </div> */}
+
 //       </div>
 //     </section>
 //   )
 // }
 
+
 "use client"
+
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
@@ -142,7 +172,7 @@ export default function ComparisonSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
+      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-16 md:py-32 px-4 md:px-8 relative overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-10"
@@ -151,41 +181,100 @@ export default function ComparisonSection() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
-        {/* Top Heading */}
+        {/* Title Section */}
         <div
-          className={` text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
+          className={`text-center mb-8 transition-all duration-700 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+          }`}
         >
-          <h2 className="font-oswald text-5xl md:text-7xl font-bold text-purple-900 mb-6">How Are We Better?</h2>
-          <p className="text-lg md:text-xl text-purple-700 max-w-2xl mx-auto">
+          <h2 className="font-oswald text-4xl md:text-6xl lg:text-7xl font-bold text-purple-900 mb-4">
+            How Are We Better?
+          </h2>
+          <p className="text-base md:text-lg text-purple-700 max-w-2xl mx-auto px-2">
             Compare us with other franchise brands. See why we're the smarter choice for entrepreneurs.
           </p>
         </div>
 
-        {/* ⭐ HEADER ROW WITH LOGO & OTHERS ⭐ */}
-       
+        <div className="md:hidden mb-8 flex justify-center">
+          <Image src="/reallogo3.png" alt="Our Logo" width={120} height={60} className="object-contain" />
+        </div>
 
-        {/* Comparisons Table */}
-        <div className="grid grid-cols-1 gap-4">
-
-             <div className="grid grid-cols-1 md:grid-cols-3 items-center ">
-          <div></div>
-
-          <div className="flex justify-center">
-            <Image
-              src="/reallogo3.png"
-              alt="Logo"
-              width={140}
-              height={70}
-              className="object-contain"
-            />
+        <div className="md:hidden space-y-6">
+          {/* Column 1: All Titles */}
+          <div className="space-y-3">
+            {comparisons.map((item, index) => (
+              <div
+                key={`title-${index}`}
+                className={`bg-purple-100 rounded-lg p-4 border-2 border-purple-300 transition-all duration-700 ${
+                  isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+                }`}
+                style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
+              >
+                <p className="font-oswald font-bold text-purple-900 text-sm">{item.title}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="flex justify-center">
+          {/* Column 2: All Offers with Logo Header */}
+          <div className="space-y-3">
+            {/* <div className="bg-yellow-100 rounded-lg p-4 border-2 border-yellow-400 flex items-center justify-center">
+              <Image src="/reallogo3.png" alt="Our Logo" width={100} height={50} className="object-contain" />
+            </div> */}
+            {comparisons.map((item, index) => (
+              <div
+                key={`us-${index}`}
+                className={`relative rounded-lg p-4 border-2 border-yellow-400 bg-yellow-100 transition-all duration-700 ${
+                  isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+                }`}
+                style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
+              >
+                <p className="font-semibold text-purple-900 text-sm">{item.us}</p>
+                <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
+              </div>
+            ))}
+          </div>
+
+          {/* Column 3: All Others with "Others" Header */}
+          <div className="space-y-3">
+            <div className="bg-purple-50 rounded-lg p-4 border-2 border-purple-200 flex items-center justify-center">
+              <p className="font-oswald font-bold text-purple-900 text-sm">Others</p>
+            </div>
+            {comparisons.map((item, index) => (
+              <div
+                key={`other-${index}`}
+                className={`rounded-lg p-4 bg-purple-50 border-2 border-purple-200 transition-all duration-700 ${
+                  isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+                }`}
+                style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
+              >
+                <p className="text-purple-600 text-sm opacity-60">{item.other}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div
+          className={`hidden h-56 md:h-40 lg:h-38 md:grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 transition-all duration-700 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
+          }`}
+        >
+          {/* Empty column for alignment */}
+          <div >
+          </div>
+
+          {/* Logo - Our Brand */}
+          <div className=" flex items-center justify-center">
+            <Image src="/reallogo3.png" alt="Our Logo" width={140} height={70} className="object-contain" />
+          </div>
+
+          {/* Others - Competition */}
+          <div className="p-4 md:p-6 flex items-center justify-center">
             <h3 className="font-oswald font-bold text-purple-900 text-lg">Others</h3>
           </div>
         </div>
-            
+
+        <div className="hidden md:space-y-4 md:block">
           {comparisons.map((item, index) => (
             <div
               key={index}
@@ -194,14 +283,14 @@ export default function ComparisonSection() {
               }`}
               style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
             >
-              {/* Column 1 */}
+              {/* Column 1 - Title */}
               <div className="bg-purple-100 rounded-2xl p-4 md:p-6 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
                 <h3 className="font-oswald font-bold text-purple-900 text-center text-base md:text-lg group-hover:text-purple-700 transition-colors">
                   {item.title}
                 </h3>
               </div>
 
-              {/* Column 2 */}
+              {/* Column 2 - Our Offer */}
               <div className="relative rounded-2xl p-4 md:p-6 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 bg-gradient-to-br from-yellow-400 to-purple-300 transition-opacity" />
                 <p className="font-semibold text-purple-900 text-center text-base md:text-lg relative z-10">
@@ -210,27 +299,15 @@ export default function ComparisonSection() {
                 <div className="absolute top-3 right-3 w-3 h-3 bg-yellow-500 rounded-full group-hover:w-4 group-hover:h-4 transition-all animate-pulse" />
               </div>
 
-              {/* Column 3 */}
+              {/* Column 3 - Others */}
               <div className="rounded-2xl p-4 md:p-6 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
                 <p className="text-purple-600 text-center text-base md:text-lg opacity-60 group-hover:opacity-50">
                   {item.other}
                 </p>
               </div>
-
             </div>
           ))}
         </div>
-
-        {/* Button */}
-        {/* <div
-          className={`mt-16 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
-          style={{ animationDelay: isVisible ? "0.6s" : "0s" }}
-        >
-          <button className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105 hover:ring-4 hover:ring-yellow-300/50">
-            Start Your Journey Today
-          </button>
-        </div> */}
-
       </div>
     </section>
   )

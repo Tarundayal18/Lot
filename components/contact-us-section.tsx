@@ -302,9 +302,9 @@ export default function ContactUsSection() {
   }
 
   const contactInfo = [
-    { icon: Phone, title: "Phone", value: "+1 (555) 123-4567" },
+    { icon: Phone, title: "Phone", value: "+91 70213 00299" },
     { icon: Mail, title: "Email", value: "hello@franchise.com" },
-    { icon: MapPin, title: "Address", value: "Multiple cities across India" },
+    { icon: MapPin, title: "Address", value: "Panvel, Navi Mumbai." },
   ]
 
   return (
@@ -378,7 +378,7 @@ export default function ContactUsSection() {
               <div className="relative z-10">
                 <p className="text-purple-900 font-oswald font-bold mb-4 text-lg">Follow Us</p>
                 <div className="flex flex-wrap gap-3">
-                  {["Instagram", "Facebook", "LinkedIn"].map((social, idx) => (
+                  {["Instagram", "Facebook"].map((social, idx) => (
                     <button
                       key={social}
                       className={`px-4 py-2 rounded-lg bg-purple-100 hover:bg-gradient-to-r hover:from-purple-600 hover:to-yellow-500 text-purple-600 hover:text-white font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 border-purple-300 hover:border-transparent ${
@@ -441,7 +441,7 @@ export default function ContactUsSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border-2 border-purple-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 placeholder:text-purple-500 text-purple-900"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="Number"
                   />
                 </div>
 
