@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main className="w-full">
        {/* <Navbar /> */}
-      <HeroSection />
+      <HeroSection/>
       <FeaturesSection />
       <FirstTimeEntrepreneursSection />
       <AnimatedIconsSection />

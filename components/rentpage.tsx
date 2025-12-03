@@ -279,7 +279,7 @@ import { useState } from "react"
 
 import { ChevronDown } from "lucide-react"
 
-export default function InvestmentCalculator() {
+export default function Rentpage() {
   const [userInputs, setUserInputs] = useState({
     city: "",
     size: "",
@@ -354,7 +354,7 @@ export default function InvestmentCalculator() {
   const roiMonths = Math.round(capexPlusInventory / netProfit)
 
   return (
-    <section className="w-full px-4 py-16 md:py-24 lg:py-28 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 relative overflow-hidden">
+    <section id="rentpage" className="w-full px-4 py-16 md:py-24 lg:py-28 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
           className="absolute -top-40 -right-40 w-80 h-80 rounded-full"
