@@ -25,14 +25,14 @@ const stepsData = [
     title: "Setup & Training",
     description:
       "Receive comprehensive training on product knowledge, operations, and our mobile-based management software. We'll also provide design assistance to create that signature look.",
-    imageSrc: "/oursecret/Container3.png",
+    imageSrc: "/oursecret/Container03.png",
   },
   {
     id: 4,
     title: "Launch & Success",
     description:
       "Stock your store with our expertly curated inventory. With centralized marketing and continuous product selection support, you're ready to open your doors and begin your profitable journey.",
-    imageSrc: "/oursecret/Container4.png",
+    imageSrc: "/oursecret/Container04.png",
   },
 ]
 
