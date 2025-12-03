@@ -378,20 +378,33 @@ export default function ContactUsSection() {
               <div className="relative z-10">
                 <p className="text-purple-900 font-oswald font-bold mb-4 text-lg">Follow Us</p>
                 <div className="flex flex-wrap gap-3">
-                  {["Instagram", "Facebook"].map((social, idx) => (
-                    <button
-                      key={social}
-                      className={`px-4 py-2 rounded-lg bg-purple-100 hover:bg-gradient-to-r hover:from-purple-600 hover:to-yellow-500 text-purple-600 hover:text-white font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 border-purple-300 hover:border-transparent ${
-                        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                      }`}
-                      style={{
-                        transitionDelay: isVisible ? `${0.6 + idx * 0.1}s` : "0s",
-                      }}
-                    >
-                      {social}
-                    </button>
-                  ))}
-                </div>
+  {[
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/littleotherthings_og?igsh=em1weDN3cTdidGpj",
+    },
+    {
+      name: "Facebook",
+      link: "https://www.facebook.com/share/17u2vhUmQH/",
+    },
+  ].map((social, idx) => (
+    <a
+      key={social.name}
+      href={social.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`px-4 py-2 rounded-lg bg-purple-100 hover:bg-gradient-to-r hover:from-purple-600 hover:to-yellow-500 text-purple-600 hover:text-white font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 border-purple-300 hover:border-transparent ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
+      style={{
+        transitionDelay: isVisible ? `${0.6 + idx * 0.1}s` : "0s",
+      }}
+    >
+      {social.name}
+    </a>
+  ))}
+</div>
+
               </div>
             </div>
           </div>
