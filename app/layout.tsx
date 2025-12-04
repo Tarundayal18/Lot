@@ -72,13 +72,13 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const _oswald = Oswald({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "fdms",
+  title: "Little Other Things",
   description:
     "FDMS delivers end-to-end digital solutions – from social media and performance marketing to web & app development and branding. Transform your online presence with innovative strategies that drive results.",
   generator: "v0.app",
-  metadataBase: new URL("https://www.fdms.co.in"),
+  metadataBase: new URL("https://franchisee.littleotherthings.com/"),
   alternates: {
-    canonical: "https://www.fdms.co.in",
+    canonical: "https://franchisee.littleotherthings.com/",
   },
 }
 
