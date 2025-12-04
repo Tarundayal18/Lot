@@ -1,314 +1,167 @@
 
-// "use client"
-// import Image from "next/image"
-// import { useEffect, useRef, useState } from "react"
-
-// export default function ComparisonSection() {
-//   const [isVisible, setIsVisible] = useState(false)
-//   const sectionRef = useRef(null)
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           setIsVisible(true)
-//         }
-//       },
-//       { threshold: 0.1 },
-//     )
-//     if (sectionRef.current) {
-//       observer.observe(sectionRef.current)
-//     }
-//     return () => observer.disconnect()
-//   }, [])
-
-//   const comparisons = [
-//     { title: "Franchise Fees", us: "Zero franchise fees", other: "High upfront fees" },
-//     { title: "Profit Margin", us: "45% profit margin", other: "Lower retail margins" },
-//     { title: "Inventory", us: "Curated fast-moving stock", other: "Slow-moving inventory" },
-//     { title: "Dead Stock Risk", us: "No dead stock risk", other: "High dead stock risk" },
-//     { title: "Operational Support", us: "Full operational support", other: "Limited training support" },
-//     { title: "Store Design", us: "Free store design help", other: "Design cost on owner" },
-//     { title: "Marketing", us: "Centralized marketing", other: "Self-managed marketing" },
-//     { title: "Systems", us: "Mobile-based operations", other: "Manual/complex systems" },
-//     { title: "Product Range", us: "Impulse-buy product range", other: "Generic product mix" },
-//     { title: "Store Appeal", us: "Strong retail experience", other: "Weak in-store appeal" },
-//   ]
-
-//   return (
-//     <section
-//       ref={sectionRef}
-//       className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-20 md:py-32 px-4 md:px-8 relative overflow-hidden"
-//     >
-//       <div
-//         className="absolute inset-0 opacity-10"
-//         style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 50%)" }}
-//       />
-//       <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300/10 rounded-full blur-3xl" />
-
-//       <div className="max-w-7xl mx-auto relative z-10">
-
-//         {/* Top Heading */}
-//         <div
-//           className={` text-center mb-10 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
-//         >
-//           <h2 className="font-oswald text-5xl md:text-7xl font-bold text-purple-900 mb-6">How Are We Better?</h2>
-//           <p className="text-lg md:text-xl text-purple-700 max-w-2xl mx-auto">
-//             Compare us with other franchise brands. See why we're the smarter choice for entrepreneurs.
-//           </p>
-//         </div>
-
-//         {/* ⭐ HEADER ROW WITH LOGO & OTHERS ⭐ */}
-
-
-//         <div className="grid grid-cols-1 gap-4">
-
-//          <div className="grid grid-cols-1 md:grid-cols-3 items-center h-56 md:h-40 lg:h-38">
-//   <div></div>
-
-//   <div className="flex justify-center">
-//     <Image
-//       src="/reallogo3.png"
-//       alt="Logo"
-//       width={140}
-//       height={70}
-//       className="object-contain"
-//     />
-//   </div>
-
-//   <div className="flex justify-center">
-//     <h3 className="font-oswald font-bold text-purple-900 text-lg">Others</h3>
-//   </div>
-// </div>
-
-
-//           {comparisons.map((item, index) => (
-//             <div
-//               key={index}
-//               className={`grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-//                 }`}
-//               style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
-//             >
-//               {/* Column 1 */}
-//               <div className="bg-purple-100 rounded-2xl p-4 md:p-6 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
-//                 <h3 className="font-oswald font-bold text-purple-900 text-center text-base md:text-lg group-hover:text-purple-700 transition-colors">
-//                   {item.title}
-//                 </h3>
-//               </div>
-
-//               {/* Column 2 */}
-//               <div className="relative rounded-2xl p-4 md:p-6 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-//                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 bg-gradient-to-br from-yellow-400 to-purple-300 transition-opacity" />
-//                 <p className="font-semibold text-purple-900 text-center text-base md:text-lg relative z-10">
-//                   {item.us}
-//                 </p>
-//                 <div className="absolute top-3 right-3 w-3 h-3 bg-yellow-500 rounded-full group-hover:w-4 group-hover:h-4 transition-all animate-pulse" />
-//               </div>
-
-//               {/* Column 3 */}
-//               <div className="rounded-2xl p-4 md:p-6 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
-//                 <p className="text-purple-600 text-center text-base md:text-lg opacity-60 group-hover:opacity-50">
-//                   {item.other}
-//                 </p>
-//               </div>
-
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Button */}
-//         {/* <div
-//           className={`mt-16 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
-//           style={{ animationDelay: isVisible ? "0.6s" : "0s" }}
-//         >
-//           <button className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105 hover:ring-4 hover:ring-yellow-300/50">
-//             Start Your Journey Today
-//           </button>
-//         </div> */}
-
-//       </div>
-//     </section>
-//   )
-// }
-
-
 "use client"
 
-import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { TrendingUp, Zap, Award, Users } from "lucide-react"
+
+const comparisonData = [
+  {
+    id: "lot",
+    name: "LOT",
+    features: [
+      { name: "Franchisee Fees", value: "Zero" },
+      { name: "Profit Margin", value: "45%" },
+      { name: "Inventory Movement", value: "Fast" },
+      { name: "Dead Stock", value: "Near Zero" },
+      { name: "Operational Support", value: "100%" },
+      { name: "Store Design Help", value: "100%" },
+      { name: "Marketing", value: "Central" },
+      { name: "POS", value: "Mobile Based" },
+    ],
+  },
+  {
+    id: "others",
+    name: "Others",
+    features: [
+      { name: "Franchisee Fees", value: "High" },
+      { name: "Profit Margin", value: "Low" },
+      { name: "Inventory Movement", value: "Slow" },
+      { name: "Dead Stock", value: "High" },
+      { name: "Operational Support", value: "Limited" },
+      { name: "Store Design Help", value: "Limited" },
+      { name: "Marketing", value: "Self" },
+      { name: "POS", value: "System Based" },
+    ],
+  },
+]
 
 export default function ComparisonSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-    return () => observer.disconnect()
-  }, [])
-
-  const comparisons = [
-    { title: "Franchise Fees", us: "Zero franchise fees", other: "High upfront fees" },
-    { title: "Profit Margin", us: "45% profit margin", other: "Lower retail margins" },
-    { title: "Inventory", us: "Curated fast-moving stock", other: "Slow-moving inventory" },
-    { title: "Dead Stock Risk", us: "No dead stock risk", other: "High dead stock risk" },
-    { title: "Operational Support", us: "Full operational support", other: "Limited training support" },
-    { title: "Store Design", us: "Free store design help", other: "Design cost on owner" },
-    { title: "Marketing", us: "Centralized marketing", other: "Self-managed marketing" },
-    { title: "Systems", us: "Mobile-based operations", other: "Manual/complex systems" },
-    { title: "Product Range", us: "Impulse-buy product range", other: "Generic product mix" },
-    { title: "Store Appeal", us: "Strong retail experience", other: "Weak in-store appeal" },
-  ]
+  const features = comparisonData[0].features.map((f) => f.name)
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 py-16 md:py-32 px-4 md:px-8 relative overflow-hidden"
-    >
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 50%)" }}
-      />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300/10 rounded-full blur-3xl" />
+    <div className="w-full min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section with Title and Logo Carousel */}
+        <div className="text-center mb-16 animate-fade-in">
+          {/* Main Heading */}
+          <div className="mb-8">
+            <h1 className=" text-5xl md:text-7xl font-bold text-purple-900 font-bold  text-gray-900 mb-4 text-balance leading-tight">
+              How Are We Better?
+            </h1>
+            <p className="text-1xl md:text-2xl text-gray-700 max-w-3xl mx-auto text-balance leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-500">
+              Compare us with other franchise brands. See why we're the smarter choice for entrepreneurs.
+            </p>
+          </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Title Section */}
-        <div
-          className={`text-center mb-8 transition-all duration-700 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <h2 className="font-oswald text-4xl md:text-6xl lg:text-7xl font-bold text-purple-900 mb-4">
-            How Are We Better?
-          </h2>
-          <p className="text-base md:text-lg text-purple-700 max-w-2xl mx-auto px-2">
-            Compare us with other franchise brands. See why we're the smarter choice for entrepreneurs.
-          </p>
-        </div>
-
-        <div className="md:hidden mb-8 flex justify-center">
-          <Image src="/reallogo3.png" alt="Our Logo" width={120} height={60} className="object-contain" />
-        </div>
-
-        <div className="md:hidden space-y-6">
-          {/* Column 1: All Titles */}
-          <div className="space-y-3">
-            {comparisons.map((item, index) => (
+          {/* Logo Section with Animation */}
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 lg:gap-12 py-8 px-4 bg-white bg-opacity-60 rounded-2xl backdrop-blur-sm border border-white border-opacity-40 shadow-lg">
+            {[
+              { icon: Award, label: "Industry Leader" },
+              { icon: TrendingUp, label: "45% Profit" },
+              { icon: Zap, label: "Fast Moving" },
+              { icon: Users, label: "Full Support" },
+            ].map((item, idx) => (
               <div
-                key={`title-${index}`}
-                className={`bg-purple-100 rounded-lg p-4 border-2 border-purple-300 transition-all duration-700 ${
-                  isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-                }`}
-                style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
+                key={idx}
+                className="flex flex-col items-center gap-2 animate-bounce-slow"
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <p className="font-oswald font-bold text-purple-900 text-sm">{item.title}</p>
+                <div className="p-3 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #ffef7e, #7b33e6)' }}>
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <span className="text-sm font-semibold text-gray-700">{item.label}</span>
               </div>
             ))}
           </div>
 
-          {/* Column 2: All Offers with Logo Header */}
-          <div className="space-y-3">
-            {/* <div className="bg-yellow-100 rounded-lg p-4 border-2 border-yellow-400 flex items-center justify-center">
-              <Image src="/reallogo3.png" alt="Our Logo" width={100} height={50} className="object-contain" />
-            </div> */}
-            {comparisons.map((item, index) => (
-              <div
-                key={`us-${index}`}
-                className={`relative rounded-lg p-4 border-2 border-yellow-400 bg-yellow-100 transition-all duration-700 ${
-                  isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-                }`}
-                style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
-              >
-                <p className="font-semibold text-purple-900 text-sm">{item.us}</p>
-                <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
-              </div>
-            ))}
+          {/* Decorative Divider */}
+          <div className="flex items-center justify-center gap-4 my-12">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+            <img src="/reallogo01.jpg" alt="LOT Logo" className="w-16 h-16 object-contain animate-bounce" />
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
           </div>
+        </div>
 
-          {/* Column 3: All Others with "Others" Header */}
-          <div className="space-y-3">
-            <div className="bg-purple-50 rounded-lg p-4 border-2 border-purple-200 flex items-center justify-center">
-              <p className="font-oswald font-bold text-purple-900 text-sm">Others</p>
+        {/* Desktop Grid Layout */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6">
+          {/* Feature Column */}
+          <div className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden linear-gradient(to right, #ffef7e, #7b33e6)">
+            <div className="px-8 py-6 bg-gradient-to-r from-yellow-100 via-purple-100 to-yellow-100 border-b-2 border-gray-200">
+              <h3 className="text-xl font-bold text-gray-900">Features</h3>
             </div>
-            {comparisons.map((item, index) => (
-              <div
-                key={`other-${index}`}
-                className={`rounded-lg p-4 bg-purple-50 border-2 border-purple-200 transition-all duration-700 ${
-                  isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-                }`}
-                style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
-              >
-                <p className="text-purple-600 text-sm opacity-60">{item.other}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <div
-          className={`hidden h-56 md:h-40 lg:h-38 md:grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 transition-all duration-700 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-          }`}
-        >
-          {/* Empty column for alignment */}
-          <div >
+            <div className="divide-y divide-gray-200">
+              {features.map((feature, idx) => (
+                <div
+                  key={idx}
+                  className={`px-8 py-4 font-semibold text-gray-900 ${idx % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Logo - Our Brand */}
-          <div className=" flex items-center justify-center">
-            <Image src="/reallogo3.png" alt="Our Logo" width={140} height={70} className="object-contain" />
-          </div>
-
-          {/* Others - Competition */}
-          <div className="p-4 md:p-6 flex items-center justify-center">
-            <h3 className="font-oswald font-bold text-purple-900 text-lg">Others</h3>
-          </div>
-        </div>
-
-        <div className="hidden md:space-y-4 md:block">
-          {comparisons.map((item, index) => (
+          {/* Comparison Columns */}
+          {comparisonData.map((column, colIdx) => (
             <div
-              key={index}
-              className={`grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-700 ${
-                isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
-              }`}
-              style={{ animationDelay: isVisible ? `${index * 0.05}s` : "0s" }}
+              key={column.id}
+              className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up"
+              style={{ animationDelay: `${(colIdx + 1) * 100}ms` }}
             >
-              {/* Column 1 - Title */}
-              <div className="bg-purple-100 rounded-2xl p-4 md:p-6 flex items-center justify-center border-2 border-purple-300 hover:border-yellow-400 transition-all duration-300 group">
-                <h3 className="font-oswald font-bold text-purple-900 text-center text-base md:text-lg group-hover:text-purple-700 transition-colors">
-                  {item.title}
-                </h3>
+              <div className="px-8 py-6 text-white" style={{ background: column.id === 'lot' ? '#7b33e6' : '#7b33e6' }}>
+                <h3 className="text-2xl font-bold text-center">{column.name}</h3>
               </div>
-
-              {/* Column 2 - Our Offer */}
-              <div className="relative rounded-2xl p-4 md:p-6 border-2 border-yellow-400 bg-yellow-100 flex items-center justify-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 bg-gradient-to-br from-yellow-400 to-purple-300 transition-opacity" />
-                <p className="font-semibold text-purple-900 text-center text-base md:text-lg relative z-10">
-                  {item.us}
-                </p>
-                <div className="absolute top-3 right-3 w-3 h-3 bg-yellow-500 rounded-full group-hover:w-4 group-hover:h-4 transition-all animate-pulse" />
-              </div>
-
-              {/* Column 3 - Others */}
-              <div className="rounded-2xl p-4 md:p-6 bg-purple-50 border-2 border-purple-200 flex items-center justify-center group hover:bg-purple-100 transition-all">
-                <p className="text-purple-600 text-center text-base md:text-lg opacity-60 group-hover:opacity-50">
-                  {item.other}
-                </p>
+              <div className="divide-y divide-gray-200">
+                {column.features.map((feature, idx) => (
+                  <div
+                    key={idx}
+                    className={`px-8 py-4 text-center font-semibold text-gray-900 ${
+                      idx % 2 === 0 ? "bg-gray-50" : "bg-white"
+                    }`}
+                  >
+                    {feature.value}
+                  </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
+
+        {/* Mobile/Tablet Comparison Table */}
+        <div className="lg:hidden overflow-x-auto rounded-xl shadow-lg border-2 border-gray-200">
+          <table className="w-full bg-white text-sm">
+            <thead>
+              <tr className="bg-gradient-to-r from-purple-100 via-yellow-50 to-purple-100">
+                <th className="px-4 py-4 text-left font-bold text-gray-900">Features</th>
+                {comparisonData.map((column) => (
+                  <th key={column.id} className="px-4 py-4 text-center font-bold text-gray-900">
+                    {column.name}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {features.map((feature, idx) => (
+                <tr
+                  key={idx}
+                  className={`border-t border-gray-200 ${
+                    idx % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  } hover:bg-purple-50 transition-colors`}
+                >
+                  <td className="px-4 py-4 text-gray-900 font-semibold text-xs">{feature}</td>
+                  {comparisonData.map((column) => {
+                    const columnFeature = column.features.find((f) => f.name === feature)
+                    return (
+                      <td key={column.id} className="px-4 py-4 text-center font-semibold text-gray-800">
+                        {columnFeature?.value}
+                      </td>
+                    )
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }

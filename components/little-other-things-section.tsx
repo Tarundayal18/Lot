@@ -123,7 +123,7 @@ export default function LittleOtherThingsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 px-4 md:px-8 relative overflow-hidden"
+      className="bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 px-4 md:px-8 py-24 relative overflow-hidden"
     >
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300/15 rounded-full blur-3xl animate-float-slow" />
@@ -137,7 +137,7 @@ export default function LittleOtherThingsSection() {
         <div
           className={`mb-16 md:mb-24 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="font-oswald text-5xl md:text-7xl font-bold text-purple-900">
+          <h2 className=" text-5xl md:text-7xl font-bold text-purple-900">
             Little Other Things
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-500 mt-3 text-4xl md:text-6xl">
               That Matter

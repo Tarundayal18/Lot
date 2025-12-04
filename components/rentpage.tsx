@@ -1,12 +1,9 @@
-
-
 // "use client"
 // import { useState } from "react"
-// import type React from "react"
 
 // import { ChevronDown } from "lucide-react"
 
-// export default function InvestmentCalculator() {
+// export default function Rentpage() {
 //   const [userInputs, setUserInputs] = useState({
 //     city: "",
 //     size: "",
@@ -24,11 +21,11 @@
 //   const [showResult, setShowResult] = useState(false)
 //   const [isCalculating, setIsCalculating] = useState(false)
 
-//   const handleUserChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+//   const handleUserChange = (e: any) => {
 //     setUserInputs({ ...userInputs, [e.target.name]: e.target.value })
 //   }
 
-//   const handlePopupChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//   const handlePopupChange = (e: any) => {
 //     const { name, value, type, checked } = e.target
 //     setPopupData({
 //       ...popupData,
@@ -81,7 +78,7 @@
 //   const roiMonths = Math.round(capexPlusInventory / netProfit)
 
 //   return (
-//     <section className="w-full px-4 py-16 md:py-24 lg:py-28 bg-gradient-to-b from-purple-100 via-purple-50 to-yellow-50 relative overflow-hidden">
+//     <section id="rentpage" className="w-full px-4 py-16 md:py-24 lg:py-28 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 relative overflow-hidden">
 //       <div className="absolute inset-0 opacity-20 pointer-events-none">
 //         <div
 //           className="absolute -top-40 -right-40 w-80 h-80 rounded-full"
@@ -91,7 +88,7 @@
 //         />
 //       </div>
 
-//       <div className="max-w-3xl mx-auto relative z-10">
+//       <div className="max-w-6xl mx-auto relative z-10">
 //         <div className="text-center mb-12 md:mb-16">
 //           <p className="text-xs md:text-sm font-semibold text-purple-600 tracking-widest uppercase mb-4 opacity-80">
 //             Financial Planning
@@ -112,6 +109,7 @@
 //                 placeholder="Enter your city"
 //                 className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none transition-colors bg-purple-50"
 //                 onChange={handleUserChange}
+//                 value={userInputs.city}
 //               />
 //             </div>
 //             <div>
@@ -121,6 +119,7 @@
 //                   name="size"
 //                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none transition-colors appearance-none bg-purple-50"
 //                   onChange={handleUserChange}
+//                   value={userInputs.size}
 //                 >
 //                   <option value="">Select shop size</option>
 //                   <option value="100">100 sqft</option>
@@ -142,6 +141,7 @@
 //                 placeholder="Enter monthly rent"
 //                 className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none transition-colors bg-purple-50"
 //                 onChange={handleUserChange}
+//                 value={userInputs.rent}
 //               />
 //             </div>
 //             <button
@@ -165,6 +165,7 @@
 //                   placeholder="Full Name"
 //                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
 //                   onChange={handlePopupChange}
+//                   value={popupData.name}
 //                 />
 //                 <input
 //                   type="email"
@@ -172,6 +173,7 @@
 //                   placeholder="Email ID"
 //                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
 //                   onChange={handlePopupChange}
+//                   value={popupData.email}
 //                 />
 //                 <input
 //                   type="tel"
@@ -179,6 +181,7 @@
 //                   placeholder="Phone Number"
 //                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
 //                   onChange={handlePopupChange}
+//                   value={popupData.phone}
 //                 />
 //                 <label className="flex items-center gap-3 text-sm text-gray-600">
 //                   <input
@@ -186,6 +189,7 @@
 //                     name="agree"
 //                     className="w-4 h-4 rounded cursor-pointer"
 //                     onChange={handlePopupChange}
+//                     checked={popupData.agree}
 //                   />
 //                   I agree to be contacted for discussion
 //                 </label>
@@ -213,30 +217,127 @@
 //           <div className="space-y-4 animate-fade-in-up">
 //             <div className="bg-white/80 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-xl border-2 border-purple-300">
 //               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-purple-900">Investment Calculation Results</h2>
-//               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//                 <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
-//                   <p className="text-sm text-gray-600 mb-1">City</p>
-//                   <p className="text-lg font-bold text-purple-900">{userInputs.city}</p>
+              
+//               {/* Basic Info */}
+//               <div className="mb-6">
+//                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Shop Details</h3>
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
+//                     <p className="text-sm text-gray-600 mb-1">City</p>
+//                     <p className="text-lg font-bold text-purple-900">{userInputs.city}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
+//                     <p className="text-sm text-gray-600 mb-1">Shop Size</p>
+//                     <p className="text-lg font-bold text-purple-900">{userInputs.size} sqft</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
+//                     <p className="text-sm text-gray-600 mb-1">Monthly Rent</p>
+//                     <p className="text-lg font-bold text-purple-900">₹{rent.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border-2 border-yellow-300">
+//                     <p className="text-sm text-gray-600 mb-1">Expected Revenue/Month</p>
+//                     <p className="text-lg font-bold text-yellow-700">₹{expectedRevenue.toLocaleString()}</p>
+//                   </div>
 //                 </div>
-//                 <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
-//                   <p className="text-sm text-gray-600 mb-1">Monthly Rent</p>
-//                   <p className="text-lg font-bold text-purple-900">₹{rent.toLocaleString()}</p>
+//               </div>
+
+//               {/* Inventory */}
+//               <div className="mb-6">
+//                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Inventory Requirements</h3>
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg border border-blue-300">
+//                     <p className="text-sm text-gray-600 mb-1">Initial Inventory (MRP)</p>
+//                     <p className="text-lg font-bold text-blue-700">₹{initialInventoryMRP.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg border border-blue-300">
+//                     <p className="text-sm text-gray-600 mb-1">Initial Inventory (Cost)</p>
+//                     <p className="text-lg font-bold text-blue-700">₹{inventoryCost.toLocaleString()}</p>
+//                   </div>
 //                 </div>
-//                 <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border-2 border-yellow-300">
-//                   <p className="text-sm text-gray-600 mb-1">Expected Revenue</p>
-//                   <p className="text-lg font-bold text-yellow-600">₹{expectedRevenue.toLocaleString()}</p>
+//               </div>
+
+//               {/* CAPEX Breakdown */}
+//               <div className="mb-6">
+//                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Capital Expenditure (CAPEX)</h3>
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
+//                     <p className="text-sm text-gray-600 mb-1">Interiors & Fixtures</p>
+//                     <p className="text-lg font-bold text-green-700">₹{interiors.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
+//                     <p className="text-sm text-gray-600 mb-1">Branding & Setup</p>
+//                     <p className="text-lg font-bold text-green-700">₹{branding.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
+//                     <p className="text-sm text-gray-600 mb-1">Misc (Licensing, Brokerage)</p>
+//                     <p className="text-lg font-bold text-green-700">₹{misc.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
+//                     <p className="text-sm text-gray-600 mb-1">Rental Deposit</p>
+//                     <p className="text-lg font-bold text-green-700">₹{rentalDeposit.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-green-200 to-green-100 rounded-lg border-2 border-green-400 md:col-span-2">
+//                     <p className="text-sm text-gray-700 mb-1 font-semibold">Total CAPEX</p>
+//                     <p className="text-xl font-bold text-green-800">₹{totalCapex.toLocaleString()}</p>
+//                   </div>
 //                 </div>
-//                 <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border-2 border-purple-400">
-//                   <p className="text-sm text-gray-600 mb-1">Net Profit/Month</p>
-//                   <p className="text-lg font-bold text-purple-700">₹{netProfit.toLocaleString()}</p>
+//               </div>
+
+//               {/* OPEX Breakdown */}
+//               <div className="mb-6">
+//                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Monthly Operational Expenses (OPEX)</h3>
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div className="p-4 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg border border-orange-300">
+//                     <p className="text-sm text-gray-600 mb-1">Staff Cost ({staffCount} staff)</p>
+//                     <p className="text-lg font-bold text-orange-700">₹{staffCost.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg border border-orange-300">
+//                     <p className="text-sm text-gray-600 mb-1">Rent</p>
+//                     <p className="text-lg font-bold text-orange-700">₹{rent.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg border border-orange-300">
+//                     <p className="text-sm text-gray-600 mb-1">Other Utilities</p>
+//                     <p className="text-lg font-bold text-orange-700">₹{utilities.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-orange-200 to-orange-100 rounded-lg border-2 border-orange-400">
+//                     <p className="text-sm text-gray-700 mb-1 font-semibold">Total OPEX</p>
+//                     <p className="text-xl font-bold text-orange-800">₹{totalOpex.toLocaleString()}</p>
+//                   </div>
 //                 </div>
-//                 <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
-//                   <p className="text-sm text-gray-600 mb-1">CAPEX + Inventory</p>
-//                   <p className="text-lg font-bold text-purple-900">₹{capexPlusInventory.toLocaleString()}</p>
+//               </div>
+
+//               {/* Profit & Loss */}
+//               <div className="mb-6">
+//                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Monthly Profit & Loss</h3>
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border border-yellow-300">
+//                     <p className="text-sm text-gray-600 mb-1">Revenue</p>
+//                     <p className="text-lg font-bold text-yellow-700">₹{expectedRevenue.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border border-yellow-300">
+//                     <p className="text-sm text-gray-600 mb-1">Gross Profit (45% margin)</p>
+//                     <p className="text-lg font-bold text-yellow-700">₹{grossProfit.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border border-yellow-300">
+//                     <p className="text-sm text-gray-600 mb-1">Operational Expenses</p>
+//                     <p className="text-lg font-bold text-yellow-700">₹{totalOpex.toLocaleString()}</p>
+//                   </div>
+//                   <div className="p-4 bg-gradient-to-br from-yellow-200 to-yellow-100 rounded-lg border-2 border-yellow-400">
+//                     <p className="text-sm text-gray-700 mb-1 font-semibold">Net Profit/Month</p>
+//                     <p className="text-xl font-bold text-yellow-800">₹{netProfit.toLocaleString()}</p>
+//                   </div>
 //                 </div>
-//                 <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border-2 border-yellow-300">
-//                   <p className="text-sm text-gray-600 mb-1">ROI (Payback Time)</p>
-//                   <p className="text-lg font-bold text-yellow-600">{roiMonths} Months</p>
+//               </div>
+
+//               {/* Final ROI */}
+//               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                 <div className="p-6 bg-gradient-to-br from-purple-200 to-purple-100 rounded-lg border-2 border-purple-400">
+//                   <p className="text-sm text-gray-700 mb-2 font-semibold">Total Investment (CAPEX + Inventory)</p>
+//                   <p className="text-2xl font-bold text-purple-900">₹{capexPlusInventory.toLocaleString()}</p>
+//                 </div>
+//                 <div className="p-6 bg-gradient-to-br from-green-300 to-green-200 rounded-lg border-2 border-green-500">
+//                   <p className="text-sm text-gray-800 mb-2 font-semibold">ROI (Payback Time)</p>
+//                   <p className="text-2xl font-bold text-green-900">{roiMonths} Months</p>
 //                 </div>
 //               </div>
 //             </div>
@@ -244,6 +345,7 @@
 //               onClick={() => {
 //                 setShowResult(false)
 //                 setUserInputs({ city: "", size: "", rent: "" })
+//                 setPopupData({ name: "", email: "", phone: "", agree: false })
 //               }}
 //               className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white p-3 rounded-lg font-semibold hover:shadow-lg transition-all"
 //             >
@@ -272,8 +374,6 @@
 //   )
 // }
 
-
-
 "use client"
 import { useState } from "react"
 
@@ -288,7 +388,6 @@ export default function Rentpage() {
 
   const [popupData, setPopupData] = useState({
     name: "",
-    email: "",
     phone: "",
     agree: false,
   })
@@ -317,17 +416,107 @@ export default function Rentpage() {
     setShowModal(true)
   }
 
-  const handleFinalSubmit = () => {
-    if (!popupData.name || !popupData.email || !popupData.phone || !popupData.agree) {
+  const handleFinalSubmit = async () => {
+    if (!popupData.name || !popupData.phone || !popupData.agree) {
       alert("Please complete all details and agree to terms!")
       return
     }
-    setShowModal(false)
-    setIsCalculating(true)
-    setTimeout(() => {
-      setIsCalculating(false)
-      setShowResult(true)
-    }, 1500)
+
+    const rent = Number(userInputs.rent)
+    const revenueMultiplier = 8
+    const expectedRevenue = rent * revenueMultiplier
+    const initialInventoryMRP = expectedRevenue * 3
+    const grossMargin = 0.45
+    const inventoryCost = initialInventoryMRP * (1 - grossMargin)
+    const size = userInputs.size
+    let staffCount = 1
+    if (size === "250-500") staffCount = 2
+    if (size === "500+") staffCount = 3
+    const staffCost = staffCount * 15000
+    const utilities = 8000
+    const totalOpex = staffCost + rent + utilities
+    const interiors = rent * 4
+    const branding = rent * 4
+    const misc = 50000
+    const rentalDeposit = rent * 3
+    const totalCapex = interiors + branding + misc + rentalDeposit
+    const capexPlusInventory = totalCapex + inventoryCost
+    const grossProfit = expectedRevenue * grossMargin
+    const netProfit = grossProfit - totalOpex
+    const roiMonths = Math.round(capexPlusInventory / netProfit)
+
+    // Prepare email message with calculation results
+    const message = `
+📊 FRANCHISE INVESTMENT CALCULATION
+
+👤 Customer Details:
+• Name: ${popupData.name}
+• Phone: ${popupData.phone}
+
+🏪 Shop Details:
+• City: ${userInputs.city}
+• Shop Size: ${userInputs.size} sqft
+• Monthly Rent: ₹${rent.toLocaleString()}
+• Expected Revenue/Month: ₹${expectedRevenue.toLocaleString()}
+
+📦 Inventory Requirements:
+• Initial Inventory (MRP): ₹${initialInventoryMRP.toLocaleString()}
+• Initial Inventory (Cost): ₹${inventoryCost.toLocaleString()}
+
+💰 Capital Expenditure (CAPEX):
+• Interiors & Fixtures: ₹${interiors.toLocaleString()}
+• Branding & Setup: ₹${branding.toLocaleString()}
+• Misc (Licensing, Brokerage): ₹${misc.toLocaleString()}
+• Rental Deposit: ₹${rentalDeposit.toLocaleString()}
+• Total CAPEX: ₹${totalCapex.toLocaleString()}
+
+📋 Monthly Operational Expenses (OPEX):
+• Staff Cost (${staffCount} staff): ₹${staffCost.toLocaleString()}
+• Rent: ₹${rent.toLocaleString()}
+• Other Utilities: ₹${utilities.toLocaleString()}
+• Total OPEX: ₹${totalOpex.toLocaleString()}
+
+📈 Monthly Profit & Loss:
+• Revenue: ₹${expectedRevenue.toLocaleString()}
+• Gross Profit (45% margin): ₹${grossProfit.toLocaleString()}
+• Operational Expenses: ₹${totalOpex.toLocaleString()}
+• Net Profit/Month: ₹${netProfit.toLocaleString()}
+
+🎯 Final Investment Summary:
+• Total Investment (CAPEX + Inventory): ₹${capexPlusInventory.toLocaleString()}
+• ROI (Payback Time): ${roiMonths} Months
+    `
+
+    const data = {
+      access_key: "f1e4a08b-5e19-436b-bb37-168a8b8dd537",
+      name: popupData.name,
+      phone: popupData.phone,
+      subject: `Investment Calculation - ${popupData.name} (${userInputs.city})`,
+      message: message,
+    }
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      })
+
+      const result = await res.json()
+
+      if (result.success) {
+        setShowModal(false)
+        setIsCalculating(true)
+        setTimeout(() => {
+          setIsCalculating(false)
+          setShowResult(true)
+        }, 1500)
+      } else {
+        alert("Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      alert("Failed to send data. Please try again.")
+    }
   }
 
   const rent = Number(userInputs.rent)
@@ -442,14 +631,6 @@ export default function Rentpage() {
                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
                   onChange={handlePopupChange}
                   value={popupData.name}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email ID"
-                  className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
-                  onChange={handlePopupChange}
-                  value={popupData.email}
                 />
                 <input
                   type="tel"
@@ -621,7 +802,7 @@ export default function Rentpage() {
               onClick={() => {
                 setShowResult(false)
                 setUserInputs({ city: "", size: "", rent: "" })
-                setPopupData({ name: "", email: "", phone: "", agree: false })
+                setPopupData({ name: "", phone: "", agree: false })
               }}
               className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white p-3 rounded-lg font-semibold hover:shadow-lg transition-all"
             >
