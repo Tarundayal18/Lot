@@ -72,9 +72,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const _oswald = Oswald({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Little Other Things",
+  title: "Little Other Things Franchise ",
   description:
-    "FDMS delivers end-to-end digital solutions – from social media and performance marketing to web & app development and branding. Transform your online presence with innovative strategies that drive results.",
+    "Grow with Our Business Opportunity",
   generator: "v0.app",
   metadataBase: new URL("https://franchisee.littleotherthings.com/"),
   alternates: {
