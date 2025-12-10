@@ -1,9 +1,11 @@
 
+
+
 // import type React from "react"
 // import type { Metadata } from "next"
 // import { Geist, Geist_Mono, Oswald } from "next/font/google"
 // import { Analytics } from "@vercel/analytics/next"
-// import Script from "next/script" // ✅ import Script
+// import Script from "next/script"
 // import "./globals.css"
 // import ScrollToTop from "../components/ScrollToTop"
 
@@ -12,13 +14,13 @@
 // const _oswald = Oswald({ subsets: ["latin"] })
 
 // export const metadata: Metadata = {
-//   title: "fdms",
+//   title: "Little Other Things Franchise ",
 //   description:
-//     "FDMS delivers end-to-end digital solutions – from social media and performance marketing to web & app development and branding. Transform your online presence with innovative strategies that drive results.",
+//     "Grow with Our Business Opportunity",
 //   generator: "v0.app",
-//   metadataBase: new URL("https://www.fdms.co.in"),
+//   metadataBase: new URL("https://franchisee.littleotherthings.com/"),
 //   alternates: {
-//     canonical: "https://www.fdms.co.in",
+//     canonical: "https://franchisee.littleotherthings.com/",
 //   },
 // }
 
@@ -30,11 +32,9 @@
 //   return (
 //     <html lang="en">
 //       <head>
-//         {/* Facebook Pixel */}
-//         <Script
-//           strategy="afterInteractive"
-//           dangerouslySetInnerHTML={{
-//             __html: `
+//         {/* ✅ Facebook Pixel (updated) */}
+//         <Script id="fb-pixel" strategy="afterInteractive">
+//           {`
 //             !function(f,b,e,v,n,t,s)
 //             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 //             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -45,14 +45,24 @@
 //             'https://connect.facebook.net/en_US/fbevents.js');
 //             fbq('init', '866709395760162');
 //             fbq('track', 'PageView');
-//             `,
-//           }}
-//         />
+//           `}
+//         </Script>
+
+//         {/* Noscript fallback */}
+//         <noscript>
+//           <img
+//             height="1"
+//             width="1"
+//             style={{ display: "none" }}
+//             src="https://www.facebook.com/tr?id=866709395760162&ev=PageView&noscript=1"
+//           />
+//         </noscript>
 //       </head>
+
 //       <body className={`font-sans antialiased`}>
 //         {children}
 //         <Analytics />
-//         <ScrollToTop />   
+//         <ScrollToTop />
 //       </body>
 //     </html>
 //   )
@@ -73,8 +83,7 @@ const _oswald = Oswald({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Little Other Things Franchise ",
-  description:
-    "Grow with Our Business Opportunity",
+  description: "Grow with Our Business Opportunity",
   generator: "v0.app",
   metadataBase: new URL("https://franchisee.littleotherthings.com/"),
   alternates: {
@@ -84,13 +93,26 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Facebook Pixel (updated) */}
+        {/* ✅ Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-W86XBSDLPV"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-W86XBSDLPV');
+          `}
+        </Script>
+
+        {/* ✅ Facebook Pixel */}
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -106,7 +128,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Noscript fallback */}
+        {/* FB Pixel noscript fallback */}
         <noscript>
           <img
             height="1"
