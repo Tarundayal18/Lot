@@ -532,17 +532,21 @@ export default function Rentpage() {
     }
   }, [userInputs.rent, userInputs.size])
 
-  const handleUserChange = (e) => {
-    setUserInputs({ ...userInputs, [e.target.name]: e.target.value })
-  }
+const handleUserChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+  setUserInputs({ ...userInputs, [name]: value });
+};
 
-  const handlePopupChange = (e) => {
-    const { name, value, type, checked } = e.target
-    setPopupData({
-      ...popupData,
-      [name]: type === "checkbox" ? checked : value,
-    })
-  }
+// For popupData
+const handlePopupChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value, type, checked } = e.target;
+  setPopupData({
+    ...popupData,
+    [name]: type === "checkbox" ? checked : value,
+  });
+};
 
   const handleInitialSubmit = () => {
     if (!userInputs.city || !userInputs.size || !userInputs.rent) {
