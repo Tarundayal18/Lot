@@ -1,3 +1,5 @@
+
+
 // "use client"
 // import { useState } from "react"
 
@@ -12,7 +14,6 @@
 
 //   const [popupData, setPopupData] = useState({
 //     name: "",
-//     email: "",
 //     phone: "",
 //     agree: false,
 //   })
@@ -41,17 +42,107 @@
 //     setShowModal(true)
 //   }
 
-//   const handleFinalSubmit = () => {
-//     if (!popupData.name || !popupData.email || !popupData.phone || !popupData.agree) {
+//   const handleFinalSubmit = async () => {
+//     if (!popupData.name || !popupData.phone || !popupData.agree) {
 //       alert("Please complete all details and agree to terms!")
 //       return
 //     }
-//     setShowModal(false)
-//     setIsCalculating(true)
-//     setTimeout(() => {
-//       setIsCalculating(false)
-//       setShowResult(true)
-//     }, 1500)
+
+//     const rent = Number(userInputs.rent)
+//     const revenueMultiplier = 8
+//     const expectedRevenue = rent * revenueMultiplier
+//     const initialInventoryMRP = expectedRevenue * 3
+//     const grossMargin = 0.45
+//     const inventoryCost = initialInventoryMRP * (1 - grossMargin)
+//     const size = userInputs.size
+//     let staffCount = 1
+//     if (size === "250-500") staffCount = 2
+//     if (size === "500+") staffCount = 3
+//     const staffCost = staffCount * 15000
+//     const utilities = 8000
+//     const totalOpex = staffCost + rent + utilities
+//     const interiors = rent * 4
+//     const branding = rent * 4
+//     const misc = 50000
+//     const rentalDeposit = rent * 3
+//     const totalCapex = interiors + branding + misc + rentalDeposit
+//     const capexPlusInventory = totalCapex + inventoryCost
+//     const grossProfit = expectedRevenue * grossMargin
+//     const netProfit = grossProfit - totalOpex
+//     const roiMonths = Math.round(capexPlusInventory / netProfit)
+
+//     // Prepare email message with calculation results
+//     const message = `
+// 📊 FRANCHISE INVESTMENT CALCULATION
+
+// 👤 Customer Details:
+// • Name: ${popupData.name}
+// • Phone: ${popupData.phone}
+
+// 🏪 Shop Details:
+// • City: ${userInputs.city}
+// • Shop Size: ${userInputs.size} sqft
+// • Monthly Rent: ₹${rent.toLocaleString()}
+// • Expected Revenue/Month: ₹${expectedRevenue.toLocaleString()}
+
+// 📦 Inventory Requirements:
+// • Initial Inventory (MRP): ₹${initialInventoryMRP.toLocaleString()}
+// • Initial Inventory (Cost): ₹${inventoryCost.toLocaleString()}
+
+// 💰 Capital Expenditure (CAPEX):
+// • Interiors & Fixtures: ₹${interiors.toLocaleString()}
+// • Branding & Setup: ₹${branding.toLocaleString()}
+// • Misc (Licensing, Brokerage): ₹${misc.toLocaleString()}
+// • Rental Deposit: ₹${rentalDeposit.toLocaleString()}
+// • Total CAPEX: ₹${totalCapex.toLocaleString()}
+
+// 📋 Monthly Operational Expenses (OPEX):
+// • Staff Cost (${staffCount} staff): ₹${staffCost.toLocaleString()}
+// • Rent: ₹${rent.toLocaleString()}
+// • Other Utilities: ₹${utilities.toLocaleString()}
+// • Total OPEX: ₹${totalOpex.toLocaleString()}
+
+// 📈 Monthly Profit & Loss:
+// • Revenue: ₹${expectedRevenue.toLocaleString()}
+// • Gross Profit (45% margin): ₹${grossProfit.toLocaleString()}
+// • Operational Expenses: ₹${totalOpex.toLocaleString()}
+// • Net Profit/Month: ₹${netProfit.toLocaleString()}
+
+// 🎯 Final Investment Summary:
+// • Total Investment (CAPEX + Inventory): ₹${capexPlusInventory.toLocaleString()}
+// • ROI (Payback Time): ${roiMonths} Months
+//     `
+
+//     const data = {
+//       access_key: "f1e4a08b-5e19-436b-bb37-168a8b8dd537",
+//       name: popupData.name,
+//       phone: popupData.phone,
+//       subject: `Investment Calculation - ${popupData.name} (${userInputs.city})`,
+//       message: message,
+//     }
+
+//     try {
+//       const res = await fetch("https://api.web3forms.com/submit", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json", Accept: "application/json" },
+//         body: JSON.stringify(data),
+//       })
+
+//       const result = await res.json()
+
+//       if (result.success) {
+//         setShowModal(false)
+//         setIsCalculating(true)
+//         setTimeout(() => {
+//           setIsCalculating(false)
+//           setShowResult(true)
+//         }, 1500)
+//       } else {
+//         alert("Something went wrong. Please try again.")
+//       }
+//     } catch (error) {
+//       alert("Failed to send data. Please try again.")
+//     }
 //   }
 
 //   const rent = Number(userInputs.rent)
@@ -167,22 +258,19 @@
 //                   onChange={handlePopupChange}
 //                   value={popupData.name}
 //                 />
-//                 <input
-//                   type="email"
-//                   name="email"
-//                   placeholder="Email ID"
-//                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
-//                   onChange={handlePopupChange}
-//                   value={popupData.email}
-//                 />
-//                 <input
-//                   type="tel"
-//                   name="phone"
-//                   placeholder="Phone Number"
-//                   className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
-//                   onChange={handlePopupChange}
-//                   value={popupData.phone}
-//                 />
+//                <input
+//   type="tel"
+//   name="phone"
+//   placeholder="Phone Number"
+//   className={`w-full border-2 p-3 rounded-lg focus:outline-none 
+//     ${popupData.phone.length === 10 ? "border-green-500" : "border-red-500"}`}
+//   value={popupData.phone}
+//   onChange={(e) => {
+//     const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+//     setPopupData({ ...popupData, phone: value });
+//   }}
+// />
+
 //                 <label className="flex items-center gap-3 text-sm text-gray-600">
 //                   <input
 //                     type="checkbox"
@@ -345,7 +433,7 @@
 //               onClick={() => {
 //                 setShowResult(false)
 //                 setUserInputs({ city: "", size: "", rent: "" })
-//                 setPopupData({ name: "", email: "", phone: "", agree: false })
+//                 setPopupData({ name: "", phone: "", agree: false })
 //               }}
 //               className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white p-3 rounded-lg font-semibold hover:shadow-lg transition-all"
 //             >
@@ -374,9 +462,10 @@
 //   )
 // }
 
-"use client"
-import { useState } from "react"
 
+
+"use client"
+import { useState, useMemo, useRef } from "react"
 import { ChevronDown } from "lucide-react"
 
 export default function Rentpage() {
@@ -395,34 +484,11 @@ export default function Rentpage() {
   const [showModal, setShowModal] = useState(false)
   const [showResult, setShowResult] = useState(false)
   const [isCalculating, setIsCalculating] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleUserChange = (e: any) => {
-    setUserInputs({ ...userInputs, [e.target.name]: e.target.value })
-  }
-
-  const handlePopupChange = (e: any) => {
-    const { name, value, type, checked } = e.target
-    setPopupData({
-      ...popupData,
-      [name]: type === "checkbox" ? checked : value,
-    })
-  }
-
-  const handleInitialSubmit = () => {
-    if (!userInputs.city || !userInputs.size || !userInputs.rent) {
-      alert("Please fill all fields!")
-      return
-    }
-    setShowModal(true)
-  }
-
-  const handleFinalSubmit = async () => {
-    if (!popupData.name || !popupData.phone || !popupData.agree) {
-      alert("Please complete all details and agree to terms!")
-      return
-    }
-
-    const rent = Number(userInputs.rent)
+  // Calculate all values using useMemo to avoid recalculation issues
+  const calculations = useMemo(() => {
+    const rent = Number(userInputs.rent) || 0
     const revenueMultiplier = 8
     const expectedRevenue = rent * revenueMultiplier
     const initialInventoryMRP = expectedRevenue * 3
@@ -445,6 +511,62 @@ export default function Rentpage() {
     const netProfit = grossProfit - totalOpex
     const roiMonths = Math.round(capexPlusInventory / netProfit)
 
+    return {
+      rent,
+      expectedRevenue,
+      initialInventoryMRP,
+      inventoryCost,
+      staffCount,
+      staffCost,
+      utilities,
+      totalOpex,
+      interiors,
+      branding,
+      misc,
+      rentalDeposit,
+      totalCapex,
+      capexPlusInventory,
+      grossProfit,
+      netProfit,
+      roiMonths
+    }
+  }, [userInputs.rent, userInputs.size])
+
+  const handleUserChange = (e) => {
+    setUserInputs({ ...userInputs, [e.target.name]: e.target.value })
+  }
+
+  const handlePopupChange = (e) => {
+    const { name, value, type, checked } = e.target
+    setPopupData({
+      ...popupData,
+      [name]: type === "checkbox" ? checked : value,
+    })
+  }
+
+  const handleInitialSubmit = () => {
+    if (!userInputs.city || !userInputs.size || !userInputs.rent) {
+      alert("Please fill all fields!")
+      return
+    }
+    setShowModal(true)
+  }
+
+  const handleFinalSubmit = async () => {
+    // Prevent multiple submissions
+    if (isSubmitting) {
+      console.log("Submission already in progress, ignoring duplicate call")
+      return
+    }
+
+    if (!popupData.name || !popupData.phone || !popupData.agree) {
+      alert("Please complete all details and agree to terms!")
+      return
+    }
+
+    // Set the flag to true to prevent duplicate submissions
+    setIsSubmitting(true)
+
     // Prepare email message with calculation results
     const message = `
 📊 FRANCHISE INVESTMENT CALCULATION
@@ -456,35 +578,35 @@ export default function Rentpage() {
 🏪 Shop Details:
 • City: ${userInputs.city}
 • Shop Size: ${userInputs.size} sqft
-• Monthly Rent: ₹${rent.toLocaleString()}
-• Expected Revenue/Month: ₹${expectedRevenue.toLocaleString()}
+• Monthly Rent: ₹${calculations.rent.toLocaleString()}
+• Expected Revenue/Month: ₹${calculations.expectedRevenue.toLocaleString()}
 
 📦 Inventory Requirements:
-• Initial Inventory (MRP): ₹${initialInventoryMRP.toLocaleString()}
-• Initial Inventory (Cost): ₹${inventoryCost.toLocaleString()}
+• Initial Inventory (MRP): ₹${calculations.initialInventoryMRP.toLocaleString()}
+• Initial Inventory (Cost): ₹${calculations.inventoryCost.toLocaleString()}
 
 💰 Capital Expenditure (CAPEX):
-• Interiors & Fixtures: ₹${interiors.toLocaleString()}
-• Branding & Setup: ₹${branding.toLocaleString()}
-• Misc (Licensing, Brokerage): ₹${misc.toLocaleString()}
-• Rental Deposit: ₹${rentalDeposit.toLocaleString()}
-• Total CAPEX: ₹${totalCapex.toLocaleString()}
+• Interiors & Fixtures: ₹${calculations.interiors.toLocaleString()}
+• Branding & Setup: ₹${calculations.branding.toLocaleString()}
+• Misc (Licensing, Brokerage): ₹${calculations.misc.toLocaleString()}
+• Rental Deposit: ₹${calculations.rentalDeposit.toLocaleString()}
+• Total CAPEX: ₹${calculations.totalCapex.toLocaleString()}
 
 📋 Monthly Operational Expenses (OPEX):
-• Staff Cost (${staffCount} staff): ₹${staffCost.toLocaleString()}
-• Rent: ₹${rent.toLocaleString()}
-• Other Utilities: ₹${utilities.toLocaleString()}
-• Total OPEX: ₹${totalOpex.toLocaleString()}
+• Staff Cost (${calculations.staffCount} staff): ₹${calculations.staffCost.toLocaleString()}
+• Rent: ₹${calculations.rent.toLocaleString()}
+• Other Utilities: ₹${calculations.utilities.toLocaleString()}
+• Total OPEX: ₹${calculations.totalOpex.toLocaleString()}
 
 📈 Monthly Profit & Loss:
-• Revenue: ₹${expectedRevenue.toLocaleString()}
-• Gross Profit (45% margin): ₹${grossProfit.toLocaleString()}
-• Operational Expenses: ₹${totalOpex.toLocaleString()}
-• Net Profit/Month: ₹${netProfit.toLocaleString()}
+• Revenue: ₹${calculations.expectedRevenue.toLocaleString()}
+• Gross Profit (45% margin): ₹${calculations.grossProfit.toLocaleString()}
+• Operational Expenses: ₹${calculations.totalOpex.toLocaleString()}
+• Net Profit/Month: ₹${calculations.netProfit.toLocaleString()}
 
 🎯 Final Investment Summary:
-• Total Investment (CAPEX + Inventory): ₹${capexPlusInventory.toLocaleString()}
-• ROI (Payback Time): ${roiMonths} Months
+• Total Investment (CAPEX + Inventory): ₹${calculations.capexPlusInventory.toLocaleString()}
+• ROI (Payback Time): ${calculations.roiMonths} Months
     `
 
     const data = {
@@ -496,6 +618,7 @@ export default function Rentpage() {
     }
 
     try {
+      console.log("Sending email...")
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -503,6 +626,7 @@ export default function Rentpage() {
       })
 
       const result = await res.json()
+      console.log("Email response:", result)
 
       if (result.success) {
         setShowModal(false)
@@ -510,37 +634,18 @@ export default function Rentpage() {
         setTimeout(() => {
           setIsCalculating(false)
           setShowResult(true)
+          // Reset only when starting fresh calculation
         }, 1500)
       } else {
         alert("Something went wrong. Please try again.")
+        setIsSubmitting(false)
       }
     } catch (error) {
+      console.error("Submission error:", error)
       alert("Failed to send data. Please try again.")
+      setIsSubmitting(false)
     }
   }
-
-  const rent = Number(userInputs.rent)
-  const revenueMultiplier = 8
-  const expectedRevenue = rent * revenueMultiplier
-  const initialInventoryMRP = expectedRevenue * 3
-  const grossMargin = 0.45
-  const inventoryCost = initialInventoryMRP * (1 - grossMargin)
-  const size = userInputs.size
-  let staffCount = 1
-  if (size === "250-500") staffCount = 2
-  if (size === "500+") staffCount = 3
-  const staffCost = staffCount * 15000
-  const utilities = 8000
-  const totalOpex = staffCost + rent + utilities
-  const interiors = rent * 4
-  const branding = rent * 4
-  const misc = 50000
-  const rentalDeposit = rent * 3
-  const totalCapex = interiors + branding + misc + rentalDeposit
-  const capexPlusInventory = totalCapex + inventoryCost
-  const grossProfit = expectedRevenue * grossMargin
-  const netProfit = grossProfit - totalOpex
-  const roiMonths = Math.round(capexPlusInventory / netProfit)
 
   return (
     <section id="rentpage" className="w-full px-4 py-16 md:py-24 lg:py-28 bg-gradient-to-b from-purple-100 via-yellow-50 to-purple-100 relative overflow-hidden">
@@ -636,9 +741,14 @@ export default function Rentpage() {
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
-                  className="w-full border-2 border-purple-300 p-3 rounded-lg focus:border-purple-600 focus:outline-none bg-purple-50"
-                  onChange={handlePopupChange}
+                  className={`w-full border-2 p-3 rounded-lg focus:outline-none ${
+                    popupData.phone.length === 10 ? "border-green-500" : "border-red-500"
+                  }`}
                   value={popupData.phone}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "").slice(0, 10)
+                    setPopupData({ ...popupData, phone: value })
+                  }}
                 />
                 <label className="flex items-center gap-3 text-sm text-gray-600">
                   <input
@@ -652,9 +762,14 @@ export default function Rentpage() {
                 </label>
                 <button
                   onClick={handleFinalSubmit}
-                  className="w-full bg-gradient-to-r from-purple-600 to-yellow-400 text-white p-3 rounded-lg font-semibold hover:shadow-lg transition-all mt-4"
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-purple-600 to-yellow-400 text-white p-3 rounded-lg font-semibold transition-all mt-4 ${
+                    isSubmitting 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : 'hover:shadow-lg cursor-pointer'
+                  }`}
                 >
-                  Submit & View Calculation
+                  {isSubmitting ? 'Submitting...' : 'Submit & View Calculation'}
                 </button>
               </div>
             </div>
@@ -689,11 +804,11 @@ export default function Rentpage() {
                   </div>
                   <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg border border-purple-300">
                     <p className="text-sm text-gray-600 mb-1">Monthly Rent</p>
-                    <p className="text-lg font-bold text-purple-900">₹{rent.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-purple-900">₹{calculations.rent.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border-2 border-yellow-300">
                     <p className="text-sm text-gray-600 mb-1">Expected Revenue/Month</p>
-                    <p className="text-lg font-bold text-yellow-700">₹{expectedRevenue.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-yellow-700">₹{calculations.expectedRevenue.toLocaleString()}</p>
                   </div>
                 </div>
               </div>
@@ -704,11 +819,11 @@ export default function Rentpage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg border border-blue-300">
                     <p className="text-sm text-gray-600 mb-1">Initial Inventory (MRP)</p>
-                    <p className="text-lg font-bold text-blue-700">₹{initialInventoryMRP.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-blue-700">₹{calculations.initialInventoryMRP.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg border border-blue-300">
                     <p className="text-sm text-gray-600 mb-1">Initial Inventory (Cost)</p>
-                    <p className="text-lg font-bold text-blue-700">₹{inventoryCost.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-blue-700">₹{calculations.inventoryCost.toLocaleString()}</p>
                   </div>
                 </div>
               </div>
@@ -719,23 +834,23 @@ export default function Rentpage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
                     <p className="text-sm text-gray-600 mb-1">Interiors & Fixtures</p>
-                    <p className="text-lg font-bold text-green-700">₹{interiors.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-green-700">₹{calculations.interiors.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
                     <p className="text-sm text-gray-600 mb-1">Branding & Setup</p>
-                    <p className="text-lg font-bold text-green-700">₹{branding.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-green-700">₹{calculations.branding.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
                     <p className="text-sm text-gray-600 mb-1">Misc (Licensing, Brokerage)</p>
-                    <p className="text-lg font-bold text-green-700">₹{misc.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-green-700">₹{calculations.misc.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-green-100 to-green-50 rounded-lg border border-green-300">
                     <p className="text-sm text-gray-600 mb-1">Rental Deposit</p>
-                    <p className="text-lg font-bold text-green-700">₹{rentalDeposit.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-green-700">₹{calculations.rentalDeposit.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-green-200 to-green-100 rounded-lg border-2 border-green-400 md:col-span-2">
                     <p className="text-sm text-gray-700 mb-1 font-semibold">Total CAPEX</p>
-                    <p className="text-xl font-bold text-green-800">₹{totalCapex.toLocaleString()}</p>
+                    <p className="text-xl font-bold text-green-800">₹{calculations.totalCapex.toLocaleString()}</p>
                   </div>
                 </div>
               </div>
@@ -745,20 +860,20 @@ export default function Rentpage() {
                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Monthly Operational Expenses (OPEX)</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-4 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg border border-orange-300">
-                    <p className="text-sm text-gray-600 mb-1">Staff Cost ({staffCount} staff)</p>
-                    <p className="text-lg font-bold text-orange-700">₹{staffCost.toLocaleString()}</p>
+                    <p className="text-sm text-gray-600 mb-1">Staff Cost ({calculations.staffCount} staff)</p>
+                    <p className="text-lg font-bold text-orange-700">₹{calculations.staffCost.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg border border-orange-300">
                     <p className="text-sm text-gray-600 mb-1">Rent</p>
-                    <p className="text-lg font-bold text-orange-700">₹{rent.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-orange-700">₹{calculations.rent.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg border border-orange-300">
                     <p className="text-sm text-gray-600 mb-1">Other Utilities</p>
-                    <p className="text-lg font-bold text-orange-700">₹{utilities.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-orange-700">₹{calculations.utilities.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-orange-200 to-orange-100 rounded-lg border-2 border-orange-400">
                     <p className="text-sm text-gray-700 mb-1 font-semibold">Total OPEX</p>
-                    <p className="text-xl font-bold text-orange-800">₹{totalOpex.toLocaleString()}</p>
+                    <p className="text-xl font-bold text-orange-800">₹{calculations.totalOpex.toLocaleString()}</p>
                   </div>
                 </div>
               </div>
@@ -769,19 +884,19 @@ export default function Rentpage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border border-yellow-300">
                     <p className="text-sm text-gray-600 mb-1">Revenue</p>
-                    <p className="text-lg font-bold text-yellow-700">₹{expectedRevenue.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-yellow-700">₹{calculations.expectedRevenue.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border border-yellow-300">
                     <p className="text-sm text-gray-600 mb-1">Gross Profit (45% margin)</p>
-                    <p className="text-lg font-bold text-yellow-700">₹{grossProfit.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-yellow-700">₹{calculations.grossProfit.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-lg border border-yellow-300">
                     <p className="text-sm text-gray-600 mb-1">Operational Expenses</p>
-                    <p className="text-lg font-bold text-yellow-700">₹{totalOpex.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-yellow-700">₹{calculations.totalOpex.toLocaleString()}</p>
                   </div>
                   <div className="p-4 bg-gradient-to-br from-yellow-200 to-yellow-100 rounded-lg border-2 border-yellow-400">
                     <p className="text-sm text-gray-700 mb-1 font-semibold">Net Profit/Month</p>
-                    <p className="text-xl font-bold text-yellow-800">₹{netProfit.toLocaleString()}</p>
+                    <p className="text-xl font-bold text-yellow-800">₹{calculations.netProfit.toLocaleString()}</p>
                   </div>
                 </div>
               </div>
@@ -790,11 +905,11 @@ export default function Rentpage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-6 bg-gradient-to-br from-purple-200 to-purple-100 rounded-lg border-2 border-purple-400">
                   <p className="text-sm text-gray-700 mb-2 font-semibold">Total Investment (CAPEX + Inventory)</p>
-                  <p className="text-2xl font-bold text-purple-900">₹{capexPlusInventory.toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-purple-900">₹{calculations.capexPlusInventory.toLocaleString()}</p>
                 </div>
                 <div className="p-6 bg-gradient-to-br from-green-300 to-green-200 rounded-lg border-2 border-green-500">
                   <p className="text-sm text-gray-800 mb-2 font-semibold">ROI (Payback Time)</p>
-                  <p className="text-2xl font-bold text-green-900">{roiMonths} Months</p>
+                  <p className="text-2xl font-bold text-green-900">{calculations.roiMonths} Months</p>
                 </div>
               </div>
             </div>
@@ -803,6 +918,7 @@ export default function Rentpage() {
                 setShowResult(false)
                 setUserInputs({ city: "", size: "", rent: "" })
                 setPopupData({ name: "", phone: "", agree: false })
+                setIsSubmitting(false) // Reset submission flag for new calculation
               }}
               className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white p-3 rounded-lg font-semibold hover:shadow-lg transition-all"
             >
