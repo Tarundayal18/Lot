@@ -61,7 +61,7 @@ export default function WhyBestSection() {
             {reasons.slice(0, 2).map((item, i) => (
               <div
                 key={i}
-                className="group relative rounded-3xl p-8 md:p-10 flex flex-col items-center justify-center text-center h-auto md:h-80 transition-all duration-500 overflow-hidden animate-fade-in-up hover:shadow-xl hover:-translate-y-2 bg-white border-2 border-purple-300"
+                className="group relative rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center text-center h-auto md:h-96 transition-all duration-500 overflow-hidden animate-fade-in-up hover:shadow-xl hover:-translate-y-2 bg-white border-2 border-purple-300"
                 style={{
                   animationDelay: `${i * 0.1}s`,
                 }}
@@ -110,7 +110,7 @@ export default function WhyBestSection() {
             {reasons.slice(2, 5).map((item, i) => (
               <div
                 key={i}
-                className="group relative rounded-3xl p-8 md:p-10 flex flex-col items-center justify-center text-center h-auto md:h-80 transition-all duration-500 overflow-hidden animate-fade-in-up hover:shadow-xl hover:-translate-y-2 bg-white border-2 border-purple-300"
+                className="group relative rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center text-center h-auto md:h-96 transition-all duration-500 overflow-hidden animate-fade-in-up hover:shadow-xl hover:-translate-y-2 bg-white border-2 border-purple-300"
                 style={{
                   animationDelay: `${(i + 2) * 0.1}s`,
                 }}
